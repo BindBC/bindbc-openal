@@ -1,0 +1,29 @@
+name "bindbc-openal"
+description "Dynamic bindings to OpenAL, compatible with -betterC, @nogc, and nothrow."
+homepage ""
+authors "Mike Parker"
+license "Boost"
+
+targetType "staticLibrary"
+targetPath "lib"
+targetName "BindBC_OpenAL"
+
+dependency "bindbc-loader" version="~>0.1.0"
+
+configuration "dynamic" {
+}
+
+configuration "dynamicBC" {
+    subConfiguration "bindbc-loader" "yesBC"
+}
+
+configuration "static" {
+    versions "BindAL_Static"
+    excludedSourceFiles "source/bindbc/al/dynload.d"
+}
+
+configuration "staticBC" {
+    dflags "-betterC"
+    versions "BindAL_Static"
+    excludedSourceFiles "source/bindbc/al/dynload.d"
+}
