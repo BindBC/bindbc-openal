@@ -23,7 +23,7 @@ dependency "bindbc-openal" version="~>0.1.0"
 ### The dynamic binding
 The dynamic binding requires no special configuration when using DUB to manage your project. There is no link-time dependency. At runtime, the OpenAL shared library is required to be on the shared library search path of the user's system. On Windows, this is typically handled by distributing the OpenAL Soft DLL with your program or running the OpenAL installer on the end-user's system. On other systems, it usually means the user must install the OpenAL shared library through a package manager.
 
-To load the shared library, you need to call the `loadOpenAL` function. This returns a member of the `ALSupport` enumeration: (see [the README for `bindbc.loader`](https://github.com/BindBC/bindbc-loader/blob/master/README.md) for the error handling API.):
+To load the shared library, you need to call the `loadOpenAL` function. This returns a member of the `ALSupport` enumeration (see [the README for `bindbc.loader`](https://github.com/BindBC/bindbc-loader/blob/master/README.md) for the error handling API):
 
 * `ALSupport.noLibrary` indicating that the library failed to load (it couldn't be found)
 * `ALSupport.badLibrary` indicating that one or more symbols in the library failed to load
