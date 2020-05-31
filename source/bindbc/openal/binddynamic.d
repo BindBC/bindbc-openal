@@ -234,7 +234,7 @@ ALSupport loadOpenAL()
         ];
     }
     else version(Posix) {
-        const(char)[][2] libNames = [
+        const(char)[][5] libNames = [
             "libal.so", "libAL.so",
             "libopenal.so", "libopenal.so.1", "libopenal.so.0"
         ];
