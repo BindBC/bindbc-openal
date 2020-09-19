@@ -7,6 +7,8 @@
 module bindbc.openal;
 
 public import bindbc.openal.types;
+public import bindbc.openal.efx;
+public import bindbc.openal.presets;
 
 version(BindBC_Static) version = BindOpenAL_Static;
 version(BindOpenAL_Static) public import bindbc.openal.bindstatic;
