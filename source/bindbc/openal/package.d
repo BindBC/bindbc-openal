@@ -14,5 +14,8 @@ version(AL_EFX) {
 }
 
 version(BindBC_Static) version = BindOpenAL_Static;
-version(BindOpenAL_Static) public import bindbc.openal.bindstatic;
+version(BindOpenAL_Static) {
+    public import bindbc.openal.bindstatic;
+    pragma(msg, "Please note that the static binding currently may cause the program to crash.");
+}
 else public import bindbc.openal.binddynamic;

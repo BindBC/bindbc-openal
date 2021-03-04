@@ -73,6 +73,8 @@ dependency "bindbc-openal" version="~>0.1.0"
 ```
 
 ## The static binding
+__NOTE__: The static binding may cause a crash at runtime when linking dynamically. This is an issue I've been unable to solve yet.
+
 The static binding has a link-time dependency on either the shared or static OpenAL libraries. On Windows, you can link with the static library or, to use the shared library, with the import library. On other systems, you can link with either the static library or directly with the shared library.
 
 _Note that the OpenAL distribution does not contain a static library and the source is not available to build one. OpenAL Soft is open source and can be compiled as a static library._
