@@ -177,15 +177,17 @@ versions "AL_EFX"
 The following example can be used to test support for EFX/EAX:
 
 ```D
+bool usingEAXReverb = false;
 ALuint loadReverb(ref ReverbProperties r)
 {
     ALuint effect;
-
     alGenEffects(1, &effect);
+
     if(alGetEnumValue("AL_EFFECT_EAXREVERB") != 0)
     {
         /* EAX Reverb is available. Set the EAX effect type then load the
          * reverb properties. */
+        usingEAXReverb = true;
         alEffecti(effect, AL_EFFECT_TYPE, AL_EFFECT_EAXREVERB);
 
         ALfloat* reflecPan = &r.reflectionsPan[0];
@@ -217,8 +219,6 @@ ALuint loadReverb(ref ReverbProperties r)
     }
     else
     {
-        usingEAXReverb = false;
-
         /* No EAX Reverb. Set the standard reverb effect type then load the
          * available reverb properties. */
         alEffecti(effect, AL_EFFECT_TYPE, AL_EFFECT_REVERB);
@@ -251,6 +251,6 @@ ALuint loadReverb(ref ReverbProperties r)
 }
 ```
 
-For `ReverbProperty` presets, see [source/bindbc/openal/presets.d](./source/bindbc/openal/presets.d).
+For `ReverbProperties` presets, see [source/bindbc/openal/presets.d](./source/bindbc/openal/presets.d).
 
 To reiterate, EFX/EAX support is experimental. [Please report any issues](https://github.com/BindBC/bindbc-openal/issues) you may encounter with the binding.

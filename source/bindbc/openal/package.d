@@ -8,7 +8,7 @@ module bindbc.openal;
 
 public import bindbc.openal.types;
 
-version(AL_EAX) {
+version(AL_EFX) {
     public import bindbc.openal.efx;
     public import bindbc.openal.presets;
 }
