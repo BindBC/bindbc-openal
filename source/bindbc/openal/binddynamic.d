@@ -301,7 +301,7 @@ bool isOpenALLoaded() { return lib != invalidHandle; }
 ALSupport loadOpenAL()
 {
     version(Windows) {
-        const(char)[][3] libNames = ["OpenAL32.dll", "soft-oal.dll", "soft_oal.dll"];
+        const(char)[][3] libNames = ["soft_oal.dll", "soft-oal.dll", "OpenAL32.dll"];
     }
     else version(OSX) {
         const(char)[][3] libNames = [
