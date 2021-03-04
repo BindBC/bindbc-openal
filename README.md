@@ -6,7 +6,7 @@ By default, `bindbc-openal` is configured to compile as a dynamic binding that i
 
 When using DUB to manage your project, the static binding can be enabled via a DUB `subConfiguration` statement in your project's package file. `-betterC` compatibility is also enabled via subconfigurations.
 
-To use OpenAL, add `bindbc-openal` as a dependency to your project's package config file. For example, the following is configured to OpenAL as a dynamic binding that is not `-betterC` compatible:
+To use OpenAL, add `bindbc-openal` as a dependency to your project's package config file. For example, the following is configured to OpenAL as a dynamic binding that is not `-betterC` compatible (note that the `0.1.0` version is just an example; please specify the minimum version you require):
 
 __dub.json__
 ```
@@ -47,7 +47,7 @@ if(ret != ALSupport.al11) {
         // GLFW shared library failed to load
     }
     else if(ALSupport.badLibrary) {
-        // One or more symbols failed to load. 
+        // One or more symbols failed to load.
     }
 }
 /*
@@ -59,6 +59,7 @@ library, from the `libs` subdirectory, relative to the executable, only on Windo
 // version(Windows) loadGLFW("libs/soft_oal.dll")
 ```
 
+(Note that the `0.1.0` version below is just an example; please specify the minimum version you require.)
 __dub.json__
 ```
 "dependencies": {
@@ -85,7 +86,7 @@ Pass the `BindOpenAL_Static` version to the compiler and link with the appropria
 
 When using the compiler command line or a build system that doesn't support DUB, this is the only option. The `-version=BindOpenAL_Static` option should be passed to the compiler when building your program. All of the required C libraries, as well as the `bindbc-glfw` and `bindbc-loader` static libraries must also be passed to the compiler on the command line or via your build system's configuration.
 
-When using DUB, its `versions` directive is an option. For example, when using the static binding:
+When using DUB, its `versions` directive is an option. For example, when using the static binding (note that the `0.1.0` version is just an example; please specify the minimum version you require):
 
 __dub.json__
 ```
@@ -106,7 +107,7 @@ libs "openal" platform="posix"
 ```
 
 ### Via DUB subconfigurations
-Instead of using DUB's `versions` directive, a `subConfiguration` can be used. Enable the `static` subconfiguration for the `bindbc-openal` dependency:
+Instead of using DUB's `versions` directive, a `subConfiguration` can be used. Enable the `static` subconfiguration for the `bindbc-openal` dependency (note that the `0.1.0` version is just an example; please specify the minimum version you require):
 
 __dub.json__
 ```
@@ -132,7 +133,7 @@ This has the benefit that it completely excludes from the build any source modul
 
 ## `betterC` support
 
-`betterC` support is enabled via the `dynamicBC` and `staticBC` subconfigurations, for dynamic and static bindings respectively. To enable the static binding with `-betterC` support:
+`betterC` support is enabled via the `dynamicBC` and `staticBC` subconfigurations, for dynamic and static bindings respectively. To enable the static binding with `-betterC` support (note that the `0.1.0` version is just an example; please specify the minimum version you require):
 
 __dub.json__
 ```
@@ -155,3 +156,101 @@ libs "openal" platform="posix"
 ```
 
 When not using DUB to manage your project, first use DUB to compile the BindBC libraries with the `dynamicBC` or `staticBC` configuration, then pass `-betterC` to the compiler when building your project.
+
+## EFX/EAX Extension
+Experimental support for the EFX and EAX extensions can be enabled by specifying the `AL_EFX` version when compiling (note that the `0.1.0` version is just an example; please specify the minimum version you require):
+
+__dub.json__
+```
+"dependencies": {
+    "bindbc-openal": "~>0.1.0"
+    "versions": ["AL_EFX"],
+}
+```
+
+__dub.sdl__
+```
+dependency "bindbc-openal" version="~>0.1.0"
+versions "AL_EFX"
+```
+
+The following example can be used to test support for EFX/EAX:
+
+```D
+ALuint loadReverb(ref ReverbProperties r)
+{
+    ALuint effect;
+
+    alGenEffects(1, &effect);
+    if(alGetEnumValue("AL_EFFECT_EAXREVERB") != 0)
+    {
+        /* EAX Reverb is available. Set the EAX effect type then load the
+         * reverb properties. */
+        alEffecti(effect, AL_EFFECT_TYPE, AL_EFFECT_EAXREVERB);
+
+        ALfloat* reflecPan = &r.reflectionsPan[0];
+        ALfloat* lateRevPan = &r.lateReverbPan[0];
+
+        alEffectf(effect, AL_EAXREVERB_DENSITY, r.density);
+        alEffectf(effect, AL_EAXREVERB_DIFFUSION, r.diffusion);
+        alEffectf(effect, AL_EAXREVERB_GAIN, r.gain);
+        alEffectf(effect, AL_EAXREVERB_GAINHF, r.gainHF);
+        alEffectf(effect, AL_EAXREVERB_GAINLF, r.gainLF);
+        alEffectf(effect, AL_EAXREVERB_DECAY_TIME, r.decayTime);
+        alEffectf(effect, AL_EAXREVERB_DECAY_HFRATIO, r.decayHFRatio);
+        alEffectf(effect, AL_EAXREVERB_DECAY_LFRATIO, r.decayLFRatio);
+        alEffectf(effect, AL_EAXREVERB_REFLECTIONS_GAIN, r.reflectionsGain);
+        alEffectf(effect, AL_EAXREVERB_REFLECTIONS_DELAY, r.reflectionsDelay);
+        alEffectfv(effect,AL_EAXREVERB_REFLECTIONS_PAN, reflecPan);
+        alEffectf(effect, AL_EAXREVERB_LATE_REVERB_GAIN, r.lateReverbGain);
+        alEffectf(effect, AL_EAXREVERB_LATE_REVERB_DELAY, r.lateReverbDelay);
+        alEffectfv(effect,AL_EAXREVERB_LATE_REVERB_PAN, lateRevPan);
+        alEffectf(effect, AL_EAXREVERB_ECHO_TIME, r.echoTime);
+        alEffectf(effect, AL_EAXREVERB_ECHO_DEPTH, r.echoDepth);
+        alEffectf(effect, AL_EAXREVERB_MODULATION_TIME, r.modulationTime);
+        alEffectf(effect, AL_EAXREVERB_MODULATION_DEPTH, r.modulationDepth);
+        alEffectf(effect, AL_EAXREVERB_AIR_ABSORPTION_GAINHF, r.airAbsorptionGainHF);
+        alEffectf(effect, AL_EAXREVERB_HFREFERENCE, r.HFReference);
+        alEffectf(effect, AL_EAXREVERB_LFREFERENCE, r.LFReference);
+        alEffectf(effect, AL_EAXREVERB_ROOM_ROLLOFF_FACTOR, r.roomRolloffFactor);
+        alEffecti(effect, AL_EAXREVERB_DECAY_HFLIMIT, r.decayHFLimit);
+    }
+    else
+    {
+        usingEAXReverb = false;
+
+        /* No EAX Reverb. Set the standard reverb effect type then load the
+         * available reverb properties. */
+        alEffecti(effect, AL_EFFECT_TYPE, AL_EFFECT_REVERB);
+
+        alEffectf(effect, AL_REVERB_DENSITY, r.density);
+        alEffectf(effect, AL_REVERB_DIFFUSION, r.diffusion);
+        alEffectf(effect, AL_REVERB_GAIN, r.gain);
+        alEffectf(effect, AL_REVERB_GAINHF, r.gainHF);
+        alEffectf(effect, AL_REVERB_DECAY_TIME, r.decayTime);
+        alEffectf(effect, AL_REVERB_DECAY_HFRATIO, r.decayHFRatio);
+        alEffectf(effect, AL_REVERB_REFLECTIONS_GAIN, r.reflectionsGain);
+        alEffectf(effect, AL_REVERB_REFLECTIONS_DELAY, r.reflectionsDelay);
+        alEffectf(effect, AL_REVERB_LATE_REVERB_GAIN, r.lateReverbGain);
+        alEffectf(effect, AL_REVERB_LATE_REVERB_DELAY, r.lateReverbDelay);
+        alEffectf(effect, AL_REVERB_AIR_ABSORPTION_GAINHF, r.airAbsorptionGainHF);
+        alEffectf(effect, AL_REVERB_ROOM_ROLLOFF_FACTOR, r.roomRolloffFactor);
+        alEffecti(effect, AL_REVERB_DECAY_HFLIMIT, r.decayHFLimit);
+    }
+
+    /* Check if an error occured, and clean up if so. */
+    int err = alGetError();
+    if(err != AL_NO_ERROR)
+    {
+        if(alIsEffect(effect))
+            alDeleteEffects(1, &effect);
+        return 0;
+    }
+
+    return effect;
+}
+```
+
+For `ReverbProperty` presets, see [source/bindbc/openal/presets.d](./source/bindbc/openal/presets.d).
+
+To reiterate, EFX/EAX support is experimental. [Please report any issues](https://github.com/BindBC/bindbc-openal/issues) you may encounter with the binding.

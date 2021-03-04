@@ -109,42 +109,44 @@ extern(C) @nogc nothrow {
     alias palcCaptureStop = void function(ALCdevice*);
     alias palcCaptureSamples = void function(ALCdevice*, ALCvoid*, ALCsizei);
 
-    //EFX Functions
-    alias palGenEffects = void function(ALsizei n, ALuint *effects);
-    alias palDeleteEffects = void function(ALsizei n, const ALuint *effects);
-    alias palIsEffect = ALboolean function(ALuint effect);
-    alias palEffecti = void function(ALuint effect, ALenum param, ALint iValue);
-    alias palEffectiv = void function(ALuint effect, ALenum param, const (ALint)* piValues);
-    alias palEffectf = void function(ALuint effect, ALenum param, ALfloat flValue);
-    alias palEffectfv = void function(ALuint effect, ALenum param, const (ALfloat)* pflValues);
-    alias palGetEffecti = void function(ALuint effect, ALenum param, ALint *piValue);
-    alias palGetEffectiv = void function(ALuint effect, ALenum param, ALint *piValues);
-    alias palGetEffectf = void function(ALuint effect, ALenum param, ALfloat *pflValue);
-    alias palGetEffectfv = void function(ALuint effect, ALenum param, ALfloat *pflValues);
+    version(AL_EFX) {
+        //EFX Functions
+        alias palGenEffects = void function(ALsizei n, ALuint *effects);
+        alias palDeleteEffects = void function(ALsizei n, const ALuint *effects);
+        alias palIsEffect = ALboolean function(ALuint effect);
+        alias palEffecti = void function(ALuint effect, ALenum param, ALint iValue);
+        alias palEffectiv = void function(ALuint effect, ALenum param, const (ALint)* piValues);
+        alias palEffectf = void function(ALuint effect, ALenum param, ALfloat flValue);
+        alias palEffectfv = void function(ALuint effect, ALenum param, const (ALfloat)* pflValues);
+        alias palGetEffecti = void function(ALuint effect, ALenum param, ALint *piValue);
+        alias palGetEffectiv = void function(ALuint effect, ALenum param, ALint *piValues);
+        alias palGetEffectf = void function(ALuint effect, ALenum param, ALfloat *pflValue);
+        alias palGetEffectfv = void function(ALuint effect, ALenum param, ALfloat *pflValues);
 
-    alias palGenFilters = void function(ALsizei n, ALuint *filters);
-    alias palDeleteFilters = void function(ALsizei n, const ALuint *filters);
-    alias palIsFilter = ALboolean function(ALuint filter);
-    alias palFilteri = void function(ALuint filter, ALenum param, ALint iValue);
-    alias palFilteriv = void function(ALuint filter, ALenum param, const ALint *piValues);
-    alias palFilterf = void function(ALuint filter, ALenum param, ALfloat flValue);
-    alias palFilterfv = void function(ALuint filter, ALenum param, const ALfloat *pflValues);
-    alias palGetFilteri = void function(ALuint filter, ALenum param, ALint *piValue);
-    alias palGetFilteriv = void function(ALuint filter, ALenum param, ALint *piValues);
-    alias palGetFilterf = void function(ALuint filter, ALenum param, ALfloat *pflValue);
-    alias palGetFilterfv = void function(ALuint filter, ALenum param, ALfloat *pflValues);
+        alias palGenFilters = void function(ALsizei n, ALuint *filters);
+        alias palDeleteFilters = void function(ALsizei n, const ALuint *filters);
+        alias palIsFilter = ALboolean function(ALuint filter);
+        alias palFilteri = void function(ALuint filter, ALenum param, ALint iValue);
+        alias palFilteriv = void function(ALuint filter, ALenum param, const ALint *piValues);
+        alias palFilterf = void function(ALuint filter, ALenum param, ALfloat flValue);
+        alias palFilterfv = void function(ALuint filter, ALenum param, const ALfloat *pflValues);
+        alias palGetFilteri = void function(ALuint filter, ALenum param, ALint *piValue);
+        alias palGetFilteriv = void function(ALuint filter, ALenum param, ALint *piValues);
+        alias palGetFilterf = void function(ALuint filter, ALenum param, ALfloat *pflValue);
+        alias palGetFilterfv = void function(ALuint filter, ALenum param, ALfloat *pflValues);
 
-    alias palGenAuxiliaryEffectSlots = void function(ALsizei n, ALuint *effectslots);
-    alias palDeleteAuxiliaryEffectSlots = void function(ALsizei n, const ALuint *effectslots);
-    alias palIsAuxiliaryEffectSlot = ALboolean function(ALuint effectslot);
-    alias palAuxiliaryEffectSloti = void function(ALuint effectslot, ALenum param, ALint iValue);
-    alias palAuxiliaryEffectSlotiv = void function(ALuint effectslot, ALenum param, const ALint *piValues);
-    alias palAuxiliaryEffectSlotf = void function(ALuint effectslot, ALenum param, ALfloat flValue);
-    alias palAuxiliaryEffectSlotfv = void function(ALuint effectslot, ALenum param, const ALfloat *pflValues);
-    alias palGetAuxiliaryEffectSloti = void function(ALuint effectslot, ALenum param, ALint *piValue);
-    alias palGetAuxiliaryEffectSlotiv = void function(ALuint effectslot, ALenum param, ALint *piValues);
-    alias palGetAuxiliaryEffectSlotf = void function(ALuint effectslot, ALenum param, ALfloat *pflValue);
-    alias palGetAuxiliaryEffectSlotfv = void function(ALuint effectslot, ALenum param, ALfloat *pflValues);
+        alias palGenAuxiliaryEffectSlots = void function(ALsizei n, ALuint *effectslots);
+        alias palDeleteAuxiliaryEffectSlots = void function(ALsizei n, const ALuint *effectslots);
+        alias palIsAuxiliaryEffectSlot = ALboolean function(ALuint effectslot);
+        alias palAuxiliaryEffectSloti = void function(ALuint effectslot, ALenum param, ALint iValue);
+        alias palAuxiliaryEffectSlotiv = void function(ALuint effectslot, ALenum param, const ALint *piValues);
+        alias palAuxiliaryEffectSlotf = void function(ALuint effectslot, ALenum param, ALfloat flValue);
+        alias palAuxiliaryEffectSlotfv = void function(ALuint effectslot, ALenum param, const ALfloat *pflValues);
+        alias palGetAuxiliaryEffectSloti = void function(ALuint effectslot, ALenum param, ALint *piValue);
+        alias palGetAuxiliaryEffectSlotiv = void function(ALuint effectslot, ALenum param, ALint *piValues);
+        alias palGetAuxiliaryEffectSlotf = void function(ALuint effectslot, ALenum param, ALfloat *pflValue);
+        alias palGetAuxiliaryEffectSlotfv = void function(ALuint effectslot, ALenum param, ALfloat *pflValues);
+    }
 
 }
 
@@ -243,40 +245,42 @@ __gshared {
     palcCaptureStop alcCaptureStop;
     palcCaptureSamples alcCaptureSamples;
 
-    //EFX Functions
-    palGenEffects alGenEffects;
-    palDeleteEffects alDeleteEffects;
-    palIsEffect alIsEffect;
-    palEffecti alEffecti;
-    palEffectiv alEffectiv;
-    palEffectf alEffectf;
-    palEffectfv alEffectfv;
-    palGetEffecti alGetEffecti;
-    palGetEffectiv alGetEffectiv;
-    palGetEffectf alGetEffectf;
-    palGetEffectfv alGetEffectfv;
-    palGenFilters alGenFilters;
-    palDeleteFilters alDeleteFilters;
-    palIsFilter alIsFilter;
-    palFilteri alFilteri;
-    palFilteriv alFilteriv;
-    palFilterf alFilterf;
-    palFilterfv alFilterfv;
-    palGetFilteri alGetFilteri;
-    palGetFilteriv alGetFilteriv;
-    palGetFilterf alGetFilterf;
-    palGetFilterfv alGetFilterfv;
-    palGenAuxiliaryEffectSlots alGenAuxiliaryEffectSlots;
-    palDeleteAuxiliaryEffectSlots alDeleteAuxiliaryEffectSlots;
-    palIsAuxiliaryEffectSlot alIsAuxiliaryEffectSlot;
-    palAuxiliaryEffectSloti alAuxiliaryEffectSloti;
-    palAuxiliaryEffectSlotiv alAuxiliaryEffectSlotiv;
-    palAuxiliaryEffectSlotf alAuxiliaryEffectSlotf;
-    palAuxiliaryEffectSlotfv alAuxiliaryEffectSlotfv;
-    palGetAuxiliaryEffectSloti alGetAuxiliaryEffectSloti;
-    palGetAuxiliaryEffectSlotiv alGetAuxiliaryEffectSlotiv;
-    palGetAuxiliaryEffectSlotf alGetAuxiliaryEffectSlotf;
-    palGetAuxiliaryEffectSlotfv alGetAuxiliaryEffectSlotfv;
+    version(AL_EFX) {
+        //EFX Functions
+        palGenEffects alGenEffects;
+        palDeleteEffects alDeleteEffects;
+        palIsEffect alIsEffect;
+        palEffecti alEffecti;
+        palEffectiv alEffectiv;
+        palEffectf alEffectf;
+        palEffectfv alEffectfv;
+        palGetEffecti alGetEffecti;
+        palGetEffectiv alGetEffectiv;
+        palGetEffectf alGetEffectf;
+        palGetEffectfv alGetEffectfv;
+        palGenFilters alGenFilters;
+        palDeleteFilters alDeleteFilters;
+        palIsFilter alIsFilter;
+        palFilteri alFilteri;
+        palFilteriv alFilteriv;
+        palFilterf alFilterf;
+        palFilterfv alFilterfv;
+        palGetFilteri alGetFilteri;
+        palGetFilteriv alGetFilteriv;
+        palGetFilterf alGetFilterf;
+        palGetFilterfv alGetFilterfv;
+        palGenAuxiliaryEffectSlots alGenAuxiliaryEffectSlots;
+        palDeleteAuxiliaryEffectSlots alDeleteAuxiliaryEffectSlots;
+        palIsAuxiliaryEffectSlot alIsAuxiliaryEffectSlot;
+        palAuxiliaryEffectSloti alAuxiliaryEffectSloti;
+        palAuxiliaryEffectSlotiv alAuxiliaryEffectSlotiv;
+        palAuxiliaryEffectSlotf alAuxiliaryEffectSlotf;
+        palAuxiliaryEffectSlotfv alAuxiliaryEffectSlotfv;
+        palGetAuxiliaryEffectSloti alGetAuxiliaryEffectSloti;
+        palGetAuxiliaryEffectSlotiv alGetAuxiliaryEffectSlotiv;
+        palGetAuxiliaryEffectSlotf alGetAuxiliaryEffectSlotf;
+        palGetAuxiliaryEffectSlotfv alGetAuxiliaryEffectSlotfv;
+    }
 }
 
 private {
@@ -426,40 +430,42 @@ ALSupport loadOpenAL(const(char)* libName)
     lib.bindSymbol(cast(void**)&alcCaptureStop, "alcCaptureStop");
     lib.bindSymbol(cast(void**)&alcCaptureSamples, "alcCaptureSamples");
 
-    //EFX Extension
-    lib.bindSymbol(cast(void**)&alGenEffects, "alGenEffects");
-    lib.bindSymbol(cast(void**)&alDeleteEffects, "alDeleteEffects");
-    lib.bindSymbol(cast(void**)&alIsEffect, "alIsEffect");
-    lib.bindSymbol(cast(void**)&alEffecti, "alEffecti");
-    lib.bindSymbol(cast(void**)&alEffectiv, "alEffectiv");
-    lib.bindSymbol(cast(void**)&alEffectf, "alEffectf");
-    lib.bindSymbol(cast(void**)&alEffectfv, "alEffectfv");
-    lib.bindSymbol(cast(void**)&alGetEffecti, "alGetEffecti");
-    lib.bindSymbol(cast(void**)&alGetEffectiv, "alGetEffectiv");
-    lib.bindSymbol(cast(void**)&alGetEffectf, "alGetEffectf");
-    lib.bindSymbol(cast(void**)&alGetEffectfv, "alGetEffectfv");
-    lib.bindSymbol(cast(void**)&alGenFilters, "alGenFilters");
-    lib.bindSymbol(cast(void**)&alDeleteFilters, "alDeleteFilters");
-    lib.bindSymbol(cast(void**)&alIsFilter, "alIsFilter");
-    lib.bindSymbol(cast(void**)&alFilteri, "alFilteri");
-    lib.bindSymbol(cast(void**)&alFilteriv, "alFilteriv");
-    lib.bindSymbol(cast(void**)&alFilterf, "alFilterf");
-    lib.bindSymbol(cast(void**)&alFilterfv, "alFilterfv");
-    lib.bindSymbol(cast(void**)&alGetFilteri, "alGetFilteri");
-    lib.bindSymbol(cast(void**)&alGetFilteriv, "alGetFilteriv");
-    lib.bindSymbol(cast(void**)&alGetFilterf, "alGetFilterf");
-    lib.bindSymbol(cast(void**)&alGetFilterfv, "alGetFilterfv");
-    lib.bindSymbol(cast(void**)&alGenAuxiliaryEffectSlots, "alGenAuxiliaryEffectSlots");
-    lib.bindSymbol(cast(void**)&alDeleteAuxiliaryEffectSlots, "alDeleteAuxiliaryEffectSlots");
-    lib.bindSymbol(cast(void**)&alIsAuxiliaryEffectSlot, "alIsAuxiliaryEffectSlot");
-    lib.bindSymbol(cast(void**)&alAuxiliaryEffectSloti, "alAuxiliaryEffectSloti");
-    lib.bindSymbol(cast(void**)&alAuxiliaryEffectSlotiv, "alAuxiliaryEffectSlotiv");
-    lib.bindSymbol(cast(void**)&alAuxiliaryEffectSlotf, "alAuxiliaryEffectSlotf");
-    lib.bindSymbol(cast(void**)&alAuxiliaryEffectSlotfv, "alAuxiliaryEffectSlotfv");
-    lib.bindSymbol(cast(void**)&alGetAuxiliaryEffectSloti, "alGetAuxiliaryEffectSloti");
-    lib.bindSymbol(cast(void**)&alGetAuxiliaryEffectSlotiv, "alGetAuxiliaryEffectSlotiv");
-    lib.bindSymbol(cast(void**)&alGetAuxiliaryEffectSlotf, "alGetAuxiliaryEffectSlotf");
-    lib.bindSymbol(cast(void**)&alGetAuxiliaryEffectSlotfv, "alGetAuxiliaryEffectSlotfv");
+    version(AL_EFX) {
+        //EFX Extension
+        lib.bindSymbol(cast(void**)&alGenEffects, "alGenEffects");
+        lib.bindSymbol(cast(void**)&alDeleteEffects, "alDeleteEffects");
+        lib.bindSymbol(cast(void**)&alIsEffect, "alIsEffect");
+        lib.bindSymbol(cast(void**)&alEffecti, "alEffecti");
+        lib.bindSymbol(cast(void**)&alEffectiv, "alEffectiv");
+        lib.bindSymbol(cast(void**)&alEffectf, "alEffectf");
+        lib.bindSymbol(cast(void**)&alEffectfv, "alEffectfv");
+        lib.bindSymbol(cast(void**)&alGetEffecti, "alGetEffecti");
+        lib.bindSymbol(cast(void**)&alGetEffectiv, "alGetEffectiv");
+        lib.bindSymbol(cast(void**)&alGetEffectf, "alGetEffectf");
+        lib.bindSymbol(cast(void**)&alGetEffectfv, "alGetEffectfv");
+        lib.bindSymbol(cast(void**)&alGenFilters, "alGenFilters");
+        lib.bindSymbol(cast(void**)&alDeleteFilters, "alDeleteFilters");
+        lib.bindSymbol(cast(void**)&alIsFilter, "alIsFilter");
+        lib.bindSymbol(cast(void**)&alFilteri, "alFilteri");
+        lib.bindSymbol(cast(void**)&alFilteriv, "alFilteriv");
+        lib.bindSymbol(cast(void**)&alFilterf, "alFilterf");
+        lib.bindSymbol(cast(void**)&alFilterfv, "alFilterfv");
+        lib.bindSymbol(cast(void**)&alGetFilteri, "alGetFilteri");
+        lib.bindSymbol(cast(void**)&alGetFilteriv, "alGetFilteriv");
+        lib.bindSymbol(cast(void**)&alGetFilterf, "alGetFilterf");
+        lib.bindSymbol(cast(void**)&alGetFilterfv, "alGetFilterfv");
+        lib.bindSymbol(cast(void**)&alGenAuxiliaryEffectSlots, "alGenAuxiliaryEffectSlots");
+        lib.bindSymbol(cast(void**)&alDeleteAuxiliaryEffectSlots, "alDeleteAuxiliaryEffectSlots");
+        lib.bindSymbol(cast(void**)&alIsAuxiliaryEffectSlot, "alIsAuxiliaryEffectSlot");
+        lib.bindSymbol(cast(void**)&alAuxiliaryEffectSloti, "alAuxiliaryEffectSloti");
+        lib.bindSymbol(cast(void**)&alAuxiliaryEffectSlotiv, "alAuxiliaryEffectSlotiv");
+        lib.bindSymbol(cast(void**)&alAuxiliaryEffectSlotf, "alAuxiliaryEffectSlotf");
+        lib.bindSymbol(cast(void**)&alAuxiliaryEffectSlotfv, "alAuxiliaryEffectSlotfv");
+        lib.bindSymbol(cast(void**)&alGetAuxiliaryEffectSloti, "alGetAuxiliaryEffectSloti");
+        lib.bindSymbol(cast(void**)&alGetAuxiliaryEffectSlotiv, "alGetAuxiliaryEffectSlotiv");
+        lib.bindSymbol(cast(void**)&alGetAuxiliaryEffectSlotf, "alGetAuxiliaryEffectSlotf");
+        lib.bindSymbol(cast(void**)&alGetAuxiliaryEffectSlotfv, "alGetAuxiliaryEffectSlotfv");
+    }
 
     if(errorCount() != errCount) loadedVersion = ALSupport.badLibrary;
     else loadedVersion = ALSupport.al11;

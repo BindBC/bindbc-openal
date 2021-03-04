@@ -105,41 +105,42 @@ extern(C) @nogc nothrow {
     void alcCaptureSamples(ALCdevice*, ALCvoid*, ALCsizei);
 
 
-    //EFX Functions
-    void alGenEffects(ALsizei n, ALuint *effects);
-    void alDeleteEffects(ALsizei n, const ALuint *effects);
-    ALboolean alIsEffect(ALuint effect);
-    void alEffecti(ALuint effect, ALenum param, ALint iValue);
-    void alEffectiv(ALuint effect, ALenum param, const ALint *piValues);
-    void alEffectf(ALuint effect, ALenum param, ALfloat flValue);
-    void alEffectfv(ALuint effect, ALenum param, const ALfloat *pflValues);
-    void alGetEffecti(ALuint effect, ALenum param, ALint *piValue);
-    void alGetEffectiv(ALuint effect, ALenum param, ALint *piValues);
-    void alGetEffectf(ALuint effect, ALenum param, ALfloat *pflValue);
-    void alGetEffectfv(ALuint effect, ALenum param, ALfloat *pflValues);
+    version(AL_EFX) {
+        void alGenEffects(ALsizei n, ALuint *effects);
+        void alDeleteEffects(ALsizei n, const ALuint *effects);
+        ALboolean alIsEffect(ALuint effect);
+        void alEffecti(ALuint effect, ALenum param, ALint iValue);
+        void alEffectiv(ALuint effect, ALenum param, const ALint *piValues);
+        void alEffectf(ALuint effect, ALenum param, ALfloat flValue);
+        void alEffectfv(ALuint effect, ALenum param, const ALfloat *pflValues);
+        void alGetEffecti(ALuint effect, ALenum param, ALint *piValue);
+        void alGetEffectiv(ALuint effect, ALenum param, ALint *piValues);
+        void alGetEffectf(ALuint effect, ALenum param, ALfloat *pflValue);
+        void alGetEffectfv(ALuint effect, ALenum param, ALfloat *pflValues);
 
-    void alGenFilters(ALsizei n, ALuint *filters);
-    void alDeleteFilters(ALsizei n, const ALuint *filters);
-    ALboolean alIsFilter(ALuint filter);
-    void alFilteri(ALuint filter, ALenum param, ALint iValue);
-    void alFilteriv(ALuint filter, ALenum param, const ALint *piValues);
-    void alFilterf(ALuint filter, ALenum param, ALfloat flValue);
-    void alFilterfv(ALuint filter, ALenum param, const ALfloat *pflValues);
-    void alGetFilteri(ALuint filter, ALenum param, ALint *piValue);
-    void alGetFilteriv(ALuint filter, ALenum param, ALint *piValues);
-    void alGetFilterf(ALuint filter, ALenum param, ALfloat *pflValue);
-    void alGetFilterfv(ALuint filter, ALenum param, ALfloat *pflValues);
+        void alGenFilters(ALsizei n, ALuint *filters);
+        void alDeleteFilters(ALsizei n, const ALuint *filters);
+        ALboolean alIsFilter(ALuint filter);
+        void alFilteri(ALuint filter, ALenum param, ALint iValue);
+        void alFilteriv(ALuint filter, ALenum param, const ALint *piValues);
+        void alFilterf(ALuint filter, ALenum param, ALfloat flValue);
+        void alFilterfv(ALuint filter, ALenum param, const ALfloat *pflValues);
+        void alGetFilteri(ALuint filter, ALenum param, ALint *piValue);
+        void alGetFilteriv(ALuint filter, ALenum param, ALint *piValues);
+        void alGetFilterf(ALuint filter, ALenum param, ALfloat *pflValue);
+        void alGetFilterfv(ALuint filter, ALenum param, ALfloat *pflValues);
 
-    void alGenAuxiliaryEffectSlots(ALsizei n, ALuint *effectslots);
-    void alDeleteAuxiliaryEffectSlots(ALsizei n, const ALuint *effectslots);
-    ALboolean alIsAuxiliaryEffectSlot(ALuint effectslot);
-    void alAuxiliaryEffectSloti(ALuint effectslot, ALenum param, ALint iValue);
-    void alAuxiliaryEffectSlotiv(ALuint effectslot, ALenum param, const ALint *piValues);
-    void alAuxiliaryEffectSlotf(ALuint effectslot, ALenum param, ALfloat flValue);
-    void alAuxiliaryEffectSlotfv(ALuint effectslot, ALenum param, const ALfloat *pflValues);
-    void alGetAuxiliaryEffectSloti(ALuint effectslot, ALenum param, ALint *piValue);
-    void alGetAuxiliaryEffectSlotiv(ALuint effectslot, ALenum param, ALint *piValues);
-    void alGetAuxiliaryEffectSlotf(ALuint effectslot, ALenum param, ALfloat *pflValue);
-    void alGetAuxiliaryEffectSlotfv(ALuint effectslot, ALenum param, ALfloat *pflValues);
+        void alGenAuxiliaryEffectSlots(ALsizei n, ALuint *effectslots);
+        void alDeleteAuxiliaryEffectSlots(ALsizei n, const ALuint *effectslots);
+        ALboolean alIsAuxiliaryEffectSlot(ALuint effectslot);
+        void alAuxiliaryEffectSloti(ALuint effectslot, ALenum param, ALint iValue);
+        void alAuxiliaryEffectSlotiv(ALuint effectslot, ALenum param, const ALint *piValues);
+        void alAuxiliaryEffectSlotf(ALuint effectslot, ALenum param, ALfloat flValue);
+        void alAuxiliaryEffectSlotfv(ALuint effectslot, ALenum param, const ALfloat *pflValues);
+        void alGetAuxiliaryEffectSloti(ALuint effectslot, ALenum param, ALint *piValue);
+        void alGetAuxiliaryEffectSlotiv(ALuint effectslot, ALenum param, ALint *piValues);
+        void alGetAuxiliaryEffectSlotf(ALuint effectslot, ALenum param, ALfloat *pflValue);
+        void alGetAuxiliaryEffectSlotfv(ALuint effectslot, ALenum param, ALfloat *pflValues);
+    }
 
 }
