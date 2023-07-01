@@ -8,14 +8,15 @@ module bindbc.openal;
 
 public import bindbc.openal.types;
 
-version(AL_EFX) {
-    public import bindbc.openal.efx;
-    public import bindbc.openal.presets;
+version(AL_EFX){
+	public import bindbc.openal.efx;
+	public import bindbc.openal.presets;
 }
 
 version(BindBC_Static) version = BindOpenAL_Static;
-version(BindOpenAL_Static) {
-    public import bindbc.openal.bindstatic;
-    pragma(msg, "Please note that the static binding currently may cause the program to crash.");
+version(BindOpenAL_Static){
+	public import bindbc.openal.bindstatic;
+	pragma(msg, "Please note that the static binding currently may cause the program to crash.");
+}else{
+	public import bindbc.openal.binddynamic;
 }
-else public import bindbc.openal.binddynamic;
