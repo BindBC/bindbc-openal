@@ -4,7 +4,9 @@
 +     (See accompanying file LICENSE_1_0.txt or copy at
 +           http://www.boost.org/LICENSE_1_0.txt)
 +/
-module bindbc.openal;
+module bindbc.openal.codegen;
 
-public import bindbc.openal.config;
-public import al;
+import bindbc.openal.config;
+import bindbc.common.codegen;
+
+mixin(makeFnBindFns(staticBinding));

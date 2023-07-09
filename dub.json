@@ -1,0 +1,39 @@
+{
+	"name": "bindbc-openal",
+	"description": "Static & dynamic bindings to OpenAL (Soft), compatible with BetterC, @nogc, and nothrow.",
+	"authors": ["Aya Partridge"],
+	"license": "BSL-1.0",
+	
+	"dependencies": {"bindbc-common": "~>0.1.0"},
+	"targetType": "staticLibrary",
+	"targetPath": "lib",
+	"targetName": "BindBC_OpenAL",
+	
+	"configurations": [
+		{
+			"name": "dynamic",
+			"dependencies": {"bindbc-loader": "~>1.1.0"},
+		},
+		{
+			"name": "dynamicBC",
+			"dependencies": {"bindbc-loader": "~>1.1.0"},
+			"subConfigurations": {
+				"bindbc-loader": "yesBC",
+				"bindbc-common": "yesBC",
+			},
+			"buildOptions": ["betterC"],
+		},
+		{
+			"name": "static",
+			"versions": ["BindOpenAL_Static"],
+		},
+		{
+			"name": "staticBC",
+			"subConfigurations": {
+				"bindbc-common": "yesBC",
+			},
+			"buildOptions": ["betterC"],
+			"versions": ["BindOpenAL_Static"],
+		}
+	],
+}

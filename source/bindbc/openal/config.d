@@ -4,7 +4,10 @@
 +     (See accompanying file LICENSE_1_0.txt or copy at
 +           http://www.boost.org/LICENSE_1_0.txt)
 +/
-module bindbc.openal;
+module bindbc.openal.config;
 
-public import bindbc.openal.config;
-public import al;
+enum staticBinding = (){
+	version(BindBC_Static)          return true;
+	else version(BindOpenAL_Static) return true;
+	else return false;
+}();
