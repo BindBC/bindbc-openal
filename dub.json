@@ -4,7 +4,7 @@
 	"authors": ["Aya Partridge"],
 	"license": "BSL-1.0",
 	
-	"dependencies": {"bindbc-common": "~>0.1.0"},
+	"dependencies": {"bindbc-common": "~>0.1.1"},
 	"targetType": "staticLibrary",
 	"targetPath": "lib",
 	"targetName": "BindBC_OpenAL",

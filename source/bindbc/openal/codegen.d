@@ -7,6 +7,6 @@
 module bindbc.openal.codegen;
 
 import bindbc.openal.config;
-import bindbc.common.codegen;
+import bindbc.common;
 
-mixin(makeFnBindFns(staticBinding));
+mixin(makeFnBindFns(staticBinding, Version(0,1,1)));
