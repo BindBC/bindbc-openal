@@ -18,13 +18,11 @@ alias SizeI = int;
 
 alias Enum = int;
 
-enum none = 0;
+enum Enum none = 0;
 
-enum: Enum{
-	sourceRelative  = 0x202,
-}
-
-enum: Enum{
+enum Source: Enum{
+	sourceRelative       = 0x202,
+	
 	coneInnerAngle       = 0x1001,
 	coneOuterAngle       = 0x1002,
 	pitch                = 0x1003,
@@ -38,10 +36,6 @@ enum: Enum{
 	maxGain              = 0x100E,
 	orientation          = 0x100F,
 	sourceState          = 0x1010,
-	initial              = 0x1011,
-	playing              = 0x1012,
-	paused               = 0x1013,
-	stopped              = 0x1014,
 	buffersQueued        = 0x1015,
 	buffersProcessed     = 0x1016,
 	referenceDistance    = 0x1020,
@@ -52,32 +46,99 @@ enum: Enum{
 	sampleOffset         = 0x1025,
 	byteOffset           = 0x1026,
 	sourceType           = 0x1027,
-	static_              = 0x1028,
-	streaming            = 0x1029,
-	undetermined         = 0x1030,
+	
+	//extensions:
 }
 
-enum: Enum{
-	formatMono8     = 0x1100,
-	formatMono16    = 0x1101,
-	formatStereo8   = 0x1102,
-	formatStereo16  = 0x1103,
+enum Listener: Enum{
+	position       = 0x1004,
+	velocity       = 0x1006,
+	gain           = 0x100A,
+	orientation    = 0x100F,
+	
+	//extensions:
 }
 
-enum: Enum{
+enum SourceState: Enum{
+	initial  = 0x1011,
+	playing  = 0x1012,
+	paused   = 0x1013,
+	stopped  = 0x1014,
+}
+
+enum SourceType: Enum{
+	static_       = 0x1028,
+	streaming     = 0x1029,
+	undetermined  = 0x1030,
+}
+
+enum Format: Enum{
+	mono8                         = 0x1100,
+	mono16                        = 0x1101,
+	stereo8                       = 0x1102,
+	stereo16                      = 0x1103,
+	
+	//extensions:
+	quad8Loki              = 0x10004,
+	quad16Loki             = 0x10005,
+	
+	monoFloat32            = 0x10010,
+	stereoFloat32          = 0x10011,
+	
+	monoDoubleExt          = 0x10012,
+	stereoDoubleExt        = 0x10013,
+	
+	monoMuLawExt           = 0x10014,
+	stereoMuLawExt         = 0x10015,
+	
+	monoALawExt            = 0x10016,
+	stereoALawExt          = 0x10017,
+	
+	quad8                  = 0x1204,
+	quad16                 = 0x1205,
+	quad32                 = 0x1206,
+	rear8                  = 0x1207,
+	rear16                 = 0x1208,
+	rear32                 = 0x1209,
+	_51Chn8                = 0x120A,
+	_51Chn16               = 0x120B,
+	_51Chn32               = 0x120C,
+	_61Chn8                = 0x120D,
+	_61Chn16               = 0x120E,
+	_61Chn32               = 0x120F,
+	_71Chn8                = 0x1210,
+	_71Chn16               = 0x1211,
+	_71Chn32               = 0x1212,
+	
+	monoMuLaw              = 0x10014,
+	stereoMuLaw            = 0x10015,
+	quadMuLaw              = 0x10021,
+	rearMuLaw              = 0x10022,
+	_51ChnMuLaw            = 0x10023,
+	_61ChnMuLaw            = 0x10024,
+	_71ChnMuLaw            = 0x10025,
+	
+	monoIMA4               = 0x1300,
+	stereoIMA4             = 0x1301,
+}
+
+enum Buffer: Enum{
 	frequency  = 0x2001,
 	bits       = 0x2002,
 	channels   = 0x2003,
 	size       = 0x2004,
+	
+	//extensions:
+	loopPointsSoft  = 0x2015,
 }
 
-enum: Enum{
+enum BufferState: Enum{
 	unused     = 0x2010,
 	pending    = 0x2011,
 	processed  = 0x2012,
 }
 
-enum: Enum{
+enum Error: Enum{
 	noError             = 0,
 	invalidName         = 0xA001,
 	invalidEnum         = 0xA002,
@@ -86,124 +147,40 @@ enum: Enum{
 	outOfMemory         = 0xA005,
 }
 
-enum: Enum{
+enum ContextString: Enum{
 	vendor      = 0xB001,
 	version_    = 0xB002,
 	renderer    = 0xB003,
 	extensions  = 0xB004,
 }
 
-enum: Enum{
+enum State: Enum{
 	dopplerFactor    = 0xC000,
 	dopplerVelocity  = 0xC001,
 	speedOfSound     = 0xC003,
+	distanceModel    = 0xD000,
+	
+	//extensions:
 }
 
-enum: Enum{
-	distanceModel              = 0xD000,
-	inverseDistance            = 0xD001,
-	inverseDistanceClamped     = 0xD002,
-	linearDistance             = 0xD003,
-	linearDistanceClamped      = 0xD004,
-	exponentDistance           = 0xD005,
-	exponentDistanceClamped    = 0xD006,
+enum DistanceModel: Enum{
+	inverse            = 0xD001,
+	inverseClamped     = 0xD002,
+	linear             = 0xD003,
+	linearClamped      = 0xD004,
+	exponent           = 0xD005,
+	exponentClamped    = 0xD006,
+	
+	//extensions:
 }
 
 //alext.h
-enum: Enum{
-	formatIMAADPCMMono16Ext    = 0x10000,
-	formatIMAADPCMStereo16Ext  = 0x10001,
-}
-
-enum: Enum{
-	formatWaveExt  = 0x10002,
-}
-
-enum: Enum{
-	formatQuad8Loki   = 0x10004,
-	formatQuad16Loki  = 0x10005,
-}
-
-enum: Enum{
-	formatMonoFloat32    = 0x10010,
-	formatStereoFloat32  = 0x10011,
-}
-
-enum: Enum{
-	formatMonoDoubleExt    = 0x10012,
-	formatStereoDoubleExt  = 0x10013,
-}
-
-enum: Enum{
-	formatMonoMuLawExt    = 0x10014,
-	formatStereoMuLawExt  = 0x10015,
-}
-
-enum: Enum{
-	formatMonoALawExt    = 0x10016,
-	formatStereoALawExt  = 0x10017,
-}
-
-enum: Enum{
-	formatQuad8    = 0x1204,
-	formatQuad16   = 0x1205,
-	formatQuad32   = 0x1206,
-	formatRear8    = 0x1207,
-	formatRear16   = 0x1208,
-	formatRear32   = 0x1209,
-	format51Chn8   = 0x120A,
-	format51Chn16  = 0x120B,
-	format51Chn32  = 0x120C,
-	format61Chn8   = 0x120D,
-	format61Chn16  = 0x120E,
-	format61Chn32  = 0x120F,
-	format71Chn8   = 0x1210,
-	format71Chn16  = 0x1211,
-	format71Chn32  = 0x1212,
-}
-
-enum: Enum{
-	formatMonoMuLaw    = 0x10014,
-	formatStereoMuLaw  = 0x10015,
-	formatQuadMuLaw    = 0x10021,
-	formatRearMuLaw    = 0x10022,
-	format51ChnMuLaw   = 0x10023,
-	format61ChnMuLaw   = 0x10024,
-	format71ChnMuLaw   = 0x10025,
-}
-
-enum: Enum{
-	formatMonoIMA4    = 0x1300,
-	formatStereoIMA4  = 0x1301,
-}
-
-enum: Enum{
+enum Capability: Enum{
 	sourceDistanceModel  = 0x200,
 }
 
 enum: Enum{
-	byteRWOffsetsSoft    = 0x1031,
-	sampleRWOffsetsSoft  = 0x1032,
-}
-
-enum: Enum{
-	loopPointsSoft  = 0x2015,
-}
-
-enum: Enum{
-	foldbackEventBlock  = 0x4112,
-	foldbackEventStart  = 0x4111,
-	foldbackEventStop   = 0x4113,
-	foldbackModeMono    = 0x4101,
-	foldbackModeStereo  = 0x4102,
-}
-
-alias FoldbackCallback = extern(C) void function(Enum, SizeI) nothrow;
-
-enum: Enum{
-	dedicatedGain                      = 0x0001,
-	effectDedicatedDialogue            = 0x9001,
-	effectDedicatedLowFrequencyEffect  = 0x9000,
+	dedicatedGain  = 0x0001,
 }
 
 enum: Enum{
@@ -478,13 +455,10 @@ mixin(joinFnBinds((){
 		{q{void}, q{alGetBuffer3i}, q{uint buffer, Enum param, int* value1, int* value2, int* value3}, pubIden: "getBuffer"},
 		{q{void}, q{alGetBufferiv}, q{uint buffer, Enum param, int* values}, pubIden: "getBuffer"},
 		
-		//alext.h
+		//extensions:
 		{q{void}, q{alBufferDataStatic}, q{const uint buffer, Enum format, void* data, SizeI size, SizeI freq}, pubIden: "bufferDataStatic"},
 		
 		{q{void}, q{alBufferSubDataSOFT}, q{uint buffer, Enum format, const(void)* data, SizeI offset, SizeI length}, pubIden: "bufferSubDataSoft"},
-		
-		{q{void}, q{alRequestFoldbackStart}, q{Enum mode, SizeI count, SizeI length, float* mem, FoldbackCallback callback}, pubIden: "requestFoldbackStart"},
-		{q{void}, q{alRequestFoldbackStop}, q{}, pubIden: "requestFoldbackStop"},
 		
 		{q{void}, q{alBufferSamplesSOFT}, q{uint buffer, uint samplerate, Enum internalformat, SizeI samples, Enum channels, Enum type, const(void)* data}, pubIden: "bufferSamplesSoft"},
 		{q{void}, q{alBufferSubSamplesSOFT}, q{uint buffer, SizeI offset, SizeI samples, Enum channels, Enum type, const(void)* data}, pubIden: "bufferSubSamplesSoft"},

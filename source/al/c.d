@@ -14,7 +14,7 @@ struct Device;
 
 struct Context;
 
-enum: Enum{
+enum ContextAttr: Enum{
 	frequency      = 0x1007,
 	refresh        = 0x1008,
 	sync           = 0x1009,
@@ -22,7 +22,7 @@ enum: Enum{
 	stereoSources  = 0x1011,
 }
 
-enum: Enum{
+enum Error: Enum{
 	noError         = 0,
 	invalidDevice   = 0xA001,
 	invalidContext  = 0xA002,
@@ -31,25 +31,27 @@ enum: Enum{
 	outOfMemory     = 0xA005,
 }
 
-enum: Enum{
+enum Attr: Enum{
 	majorVersion              = 0x1000,
 	minorVersion              = 0x1001,
 	attributesSize            = 0x1002,
 	allAttributes             = 0x1003,
-	defaultDeviceSpecifier    = 0x1004,
-	deviceSpecifier           = 0x1005,
-	extensions                = 0x1006,
 }
 
-enum: Enum{
+enum ContextString: Enum{
+	defaultDeviceSpecifier         = 0x1004,
+	deviceSpecifier                = 0x1005,
+	extensions                     = 0x1006,
+	
+	//extensions:
 	captureDeviceSpecifier         = 0x310,
 	captureDefaultDeviceSpecifier  = 0x311,
 	captureSamples                 = 0x312,
-}
-
-enum: Enum{
-	defaultAllDevicesSpecifier  = 0x1012,
-	allDevicesSpecifier         = 0x1013,
+	
+	defaultAllDevicesSpecifier     = 0x1012,
+	allDevicesSpecifier            = 0x1013,
+	
+	connected                      = 0x313,
 }
 
 //alext.h
@@ -58,10 +60,6 @@ enum: Enum{
 	chanMainLoki  = 0x500001,
 	chanPCMLoki   = 0x500002,
 	chanCDLoki    = 0x500003,
-}
-
-enum: Enum{
-	connected  = 0x313,
 }
 
 enum: Enum{
@@ -144,9 +142,9 @@ enum: Enum{
 	stereoBasicSoft  = 0x19AE,
 	stereoUHJSoft    = 0x19AF,
 	stereoHRTFSoft   = 0x19B2,
-	surround5_1Soft  = 0x1504,
-	surround6_1Soft  = 0x1505,
-	surround7_1Soft  = 0x1506,
+	surround51Soft  = 0x1504,
+	surround61Soft  = 0x1505,
+	surround71Soft  = 0x1506,
 }
 
 enum: Enum{

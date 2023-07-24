@@ -168,46 +168,49 @@ enum: Enum{
 	effectType            = 0x8001,
 }
 
-enum: Enum{
-	effectNull              = 0x0000,
-	effectReverb            = 0x0001,
-	effectChorus            = 0x0002,
-	effectDistortion        = 0x0003,
-	effectEcho              = 0x0004,
-	effectFlanger           = 0x0005,
-	effectFrequencyShifter  = 0x0006,
-	effectVocalMorpher      = 0x0007,
-	effectPitchShifter      = 0x0008,
-	effectRingModulator     = 0x0009,
-	effectAutoWah           = 0x000A,
-	effectCompressor        = 0x000B,
-	effectEqualizer         = 0x000C,
-	effectEqualiser         = effectEqualizer,
-	effectEAXReverb         = 0x8000,
+enum EffectType: Enum{
+	null_             = 0x0000,
+	reverb            = 0x0001,
+	chorus            = 0x0002,
+	distortion        = 0x0003,
+	echo              = 0x0004,
+	flanger           = 0x0005,
+	frequencyShifter  = 0x0006,
+	vocalMorpher      = 0x0007,
+	pitchShifter      = 0x0008,
+	ringModulator     = 0x0009,
+	autoWah           = 0x000A,
+	compressor        = 0x000B,
+	equalizer         = 0x000C,
+	equaliser         = equalizer,
+	eAXReverb         = 0x8000,
+	
+	dedicatedDialogue            = 0x9001,
+	dedicatedLowFrequencyEffect  = 0x9000,
 }
 
-enum: Enum{
-	effectSlotEffect             = 0x0001,
-	effectSlotGain               = 0x0002,
-	effectSlotAuxiliarySendAuto  = 0x0003,
-
-	effectSlotNull               = 0x0000,
+enum EffectSlot: Enum{
+	effect             = 0x0001,
+	gain               = 0x0002,
+	auxiliarySendAuto  = 0x0003,
+	
+	null_              = 0x0000,
 }
 
-enum: Enum{
-	lowPassGain    = 0x0001,
-	lowPassGainHF  = 0x0002,
+enum LowPass: Enum{
+	gain    = 0x0001,
+	gainHF  = 0x0002,
 }
 
-enum: Enum{
-	highPassGain    = 0x0001,
-	highPassGainLF  = 0x0002,
+enum HighPass: Enum{
+	gain    = 0x0001,
+	gainLF  = 0x0002,
 }
 
-enum: Enum{
-	bandPassGain    = 0x0001,
-	bandPassGainLF  = 0x0002,
-	bandPassGainHF  = 0x0003,
+enum BandPass: Enum{
+	gain    = 0x0001,
+	gainLF  = 0x0002,
+	gainHF  = 0x0003,
 }
 
 enum: Enum{
@@ -541,36 +544,36 @@ enum{
 	vocalMorpherMaxPhonemeBCoarseTuning      = 24,
 	vocalMorpherDefaultPhonemeBCoarseTuning  = 0,
 	
-	vocalMorpherPhoneme_A                    = 0,
-	vocalMorpherPhoneme_E                    = 1,
-	vocalMorpherPhoneme_I                    = 2,
-	vocalMorpherPhoneme_O                    = 3,
-	vocalMorpherPhoneme_U                    = 4,
-	vocalMorpherPhoneme_AA                   = 5,
-	vocalMorpherPhoneme_AE                   = 6,
-	vocalMorpherPhoneme_AH                   = 7,
-	vocalMorpherPhoneme_AO                   = 8,
-	vocalMorpherPhoneme_EH                   = 9,
-	vocalMorpherPhoneme_ER                   = 10,
-	vocalMorpherPhoneme_IH                   = 11,
-	vocalMorpherPhoneme_IY                   = 12,
-	vocalMorpherPhoneme_UH                   = 13,
-	vocalMorpherPhoneme_UW                   = 14,
-	vocalMorpherPhoneme_B                    = 15,
-	vocalMorpherPhoneme_D                    = 16,
-	vocalMorpherPhoneme_F                    = 17,
-	vocalMorpherPhoneme_G                    = 18,
-	vocalMorpherPhoneme_J                    = 19,
-	vocalMorpherPhoneme_K                    = 20,
-	vocalMorpherPhoneme_L                    = 21,
-	vocalMorpherPhoneme_M                    = 22,
-	vocalMorpherPhoneme_N                    = 23,
-	vocalMorpherPhoneme_P                    = 24,
-	vocalMorpherPhoneme_R                    = 25,
-	vocalMorpherPhoneme_S                    = 26,
-	vocalMorpherPhoneme_T                    = 27,
-	vocalMorpherPhoneme_V                    = 28,
-	vocalMorpherPhoneme_Z                    = 29,
+	vocalMorpherPhonemeA                    = 0,
+	vocalMorpherPhonemeE                    = 1,
+	vocalMorpherPhonemeI                    = 2,
+	vocalMorpherPhonemeO                    = 3,
+	vocalMorpherPhonemeU                    = 4,
+	vocalMorpherPhonemeAA                   = 5,
+	vocalMorpherPhonemeAE                   = 6,
+	vocalMorpherPhonemeAH                   = 7,
+	vocalMorpherPhonemeAO                   = 8,
+	vocalMorpherPhonemeEH                   = 9,
+	vocalMorpherPhonemeER                   = 10,
+	vocalMorpherPhonemeIH                   = 11,
+	vocalMorpherPhonemeIY                   = 12,
+	vocalMorpherPhonemeUH                   = 13,
+	vocalMorpherPhonemeUW                   = 14,
+	vocalMorpherPhonemeB                    = 15,
+	vocalMorpherPhonemeD                    = 16,
+	vocalMorpherPhonemeF                    = 17,
+	vocalMorpherPhonemeG                    = 18,
+	vocalMorpherPhonemeJ                    = 19,
+	vocalMorpherPhonemeK                    = 20,
+	vocalMorpherPhonemeL                    = 21,
+	vocalMorpherPhonemeM                    = 22,
+	vocalMorpherPhonemeN                    = 23,
+	vocalMorpherPhonemeP                    = 24,
+	vocalMorpherPhonemeR                    = 25,
+	vocalMorpherPhonemeS                    = 26,
+	vocalMorpherPhonemeT                    = 27,
+	vocalMorpherPhonemeV                    = 28,
+	vocalMorpherPhonemeZ                    = 29,
 	
 	vocalMorpherWaveformSinusoid             = 0,
 	vocalMorpherWaveformTriangle             = 1,
@@ -735,222 +738,137 @@ struct EAXReverbProperties{
     int decayHFLimit;
 }
 
-enum{
-	reverbPresetGeneric          = EAXReverbProperties(1f, 1f, 0.3162f, 0.8913f, 1f, 1.49f, 0.83f, 1f, 0.05f, 0.007f, [0f, 0f, 0f], 1.2589f, 0.011f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetPaddedCell       = EAXReverbProperties(0.1715f, 1f, 0.3162f, 0.001f, 1f, 0.17f, 0.1f, 1f, 0.25f, 0.001f, [0f, 0f, 0f], 1.2691f, 0.002f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetRoom             = EAXReverbProperties(0.4287f, 1f, 0.3162f, 0.5929f, 1f, 0.4f, 0.83f, 1f, 0.1503f, 0.002f, [0f, 0f, 0f], 1.0629f, 0.003f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetBathroom         = EAXReverbProperties(0.1715f, 1f, 0.3162f, 0.2512f, 1f, 1.49f, 0.54f, 1f, 0.6531f, 0.007f, [0f, 0f, 0f], 3.2734f, 0.011f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetLivingRoom       = EAXReverbProperties(0.9766f, 1f, 0.3162f, 0.001f, 1f, 0.5f, 0.1f, 1f, 0.2051f, 0.003f, [0f, 0f, 0f], 0.2805f, 0.004f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetLoungeRoom       = reverbPresetLivingRoom,
-	reverbPresetStoneRoom        = EAXReverbProperties(1f, 1f, 0.3162f, 0.7079f, 1f, 2.31f, 0.64f, 1f, 0.4411f, 0.012f, [0f, 0f, 0f], 1.1003f, 0.017f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetAuditorium       = EAXReverbProperties(1f, 1f, 0.3162f, 0.5781f, 1f, 4.32f, 0.59f, 1f, 0.4032f, 0.02f, [0f, 0f, 0f], 0.717f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetConcertHall      = EAXReverbProperties(1f, 1f, 0.3162f, 0.5623f, 1f, 3.92f, 0.7f, 1f, 0.2427f, 0.02f, [0f, 0f, 0f], 0.9977f, 0.029f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetCave             = EAXReverbProperties(1f, 1f, 0.3162f, 1f, 1f, 2.91f, 1.3f, 1f, 0.5f, 0.015f, [0f, 0f, 0f], 0.7063f, 0.022f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0),
-	reverbPresetArena            = EAXReverbProperties(1f, 1f, 0.3162f, 0.4477f, 1f, 7.24f, 0.33f, 1f, 0.2612f, 0.02f, [0f, 0f, 0f], 1.0186f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetHangar           = EAXReverbProperties(1f, 1f, 0.3162f, 0.3162f, 1f, 10.05f, 0.23f, 1f, 0.5f, 0.02f, [0f, 0f, 0f], 1.256f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetCarpetedHallway  = EAXReverbProperties(0.4287f, 1f, 0.3162f, 0.01f, 1f, 0.3f, 0.1f, 1f, 0.1215f, 0.002f, [0f, 0f, 0f], 0.1531f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetHallway          = EAXReverbProperties(0.3645f, 1f, 0.3162f, 0.7079f, 1f, 1.49f, 0.59f, 1f, 0.2458f, 0.007f, [0f, 0f, 0f], 1.6615f, 0.011f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetStoneCorridor    = EAXReverbProperties(1f, 1f, 0.3162f, 0.7612f, 1f, 2.7f, 0.79f, 1f, 0.2472f, 0.013f, [0f, 0f, 0f], 1.5758f, 0.02f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetAlley            = EAXReverbProperties(1f, 0.3f, 0.3162f, 0.7328f, 1f, 1.49f, 0.86f, 1f, 0.25f, 0.007f, [0f, 0f, 0f], 0.9954f, 0.011f, [0f, 0f, 0f], 0.125f, 0.95f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetForest           = EAXReverbProperties(1f, 0.3f, 0.3162f, 0.0224f, 1f, 1.49f, 0.54f, 1f, 0.0525f, 0.162f, [0f, 0f, 0f], 0.7682f, 0.088f, [0f, 0f, 0f], 0.125f, 1f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetCity             = EAXReverbProperties(1f, 0.5f, 0.3162f, 0.3981f, 1f, 1.49f, 0.67f, 1f, 0.073f, 0.007f, [0f, 0f, 0f], 0.1427f, 0.011f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetMountains        = EAXReverbProperties(1f, 0.27f, 0.3162f, 0.0562f, 1f, 1.49f, 0.21f, 1f, 0.0407f, 0.3f, [0f, 0f, 0f], 0.1919f, 0.1f, [0f, 0f, 0f], 0.25f, 1f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0),
-	reverbPresetQuarry           = EAXReverbProperties(1f, 1f, 0.3162f, 0.3162f, 1f, 1.49f, 0.83f, 1f, 0f, 0.061f, [0f, 0f, 0f], 1.7783f, 0.025f, [0f, 0f, 0f], 0.125f, 0.7f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetPlain            = EAXReverbProperties(1f, 0.21f, 0.3162f, 0.1f, 1f, 1.49f, 0.5f, 1f, 0.0585f, 0.179f, [0f, 0f, 0f], 0.1089f, 0.1f, [0f, 0f, 0f], 0.25f, 1f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetParkingLot       = EAXReverbProperties(1f, 1f, 0.3162f, 1f, 1f, 1.65f, 1.5f, 1f, 0.2082f, 0.008f, [0f, 0f, 0f], 0.2652f, 0.012f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0),
-	reverbPresetCarPark          = reverbPresetParkingLot,
-	reverbPresetSewerPipe        = EAXReverbProperties(0.3071f, 0.8f, 0.3162f, 0.3162f, 1f, 2.81f, 0.14f, 1f, 1.6387f, 0.014f, [0f, 0f, 0f], 3.2471f, 0.021f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetUnderwater       = EAXReverbProperties(0.3645f, 1f, 0.3162f, 0.01f, 1f, 1.49f, 0.1f, 1f, 0.5963f, 0.007f, [0f, 0f, 0f], 7.0795f, 0.011f, [0f, 0f, 0f], 0.25f, 0f, 1.18f, 0.348f, 0.9943f, 5000f, 250f, 0f, 0x1),
-	reverbPresetDrugged          = EAXReverbProperties(0.4287f, 0.5f, 0.3162f, 1f, 1f, 8.39f, 1.39f, 1f, 0.876f, 0.002f, [0f, 0f, 0f], 3.1081f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 1f, 0.9943f, 5000f, 250f, 0f, 0x0),
-	reverbPresetDizzy            = EAXReverbProperties(0.3645f, 0.6f, 0.3162f, 0.631f, 1f, 17.23f, 0.56f, 1f, 0.1392f, 0.02f, [0f, 0f, 0f], 0.4937f, 0.03f, [0f, 0f, 0f], 0.25f, 1f, 0.81f, 0.31f, 0.9943f, 5000f, 250f, 0f, 0x0),
-	reverbPresetPsychotic        = EAXReverbProperties(0.0625f, 0.5f, 0.3162f, 0.8404f, 1f, 7.56f, 0.91f, 1f, 0.4864f, 0.02f, [0f, 0f, 0f], 2.4378f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 4f, 1f, 0.9943f, 5000f, 250f, 0f, 0x0),
+enum ReverbPreset: EAXReverbProperties{
+	generic          = EAXReverbProperties(1f, 1f, 0.3162f, 0.8913f, 1f, 1.49f, 0.83f, 1f, 0.05f, 0.007f, [0f, 0f, 0f], 1.2589f, 0.011f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	paddedCell       = EAXReverbProperties(0.1715f, 1f, 0.3162f, 0.001f, 1f, 0.17f, 0.1f, 1f, 0.25f, 0.001f, [0f, 0f, 0f], 1.2691f, 0.002f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	room             = EAXReverbProperties(0.4287f, 1f, 0.3162f, 0.5929f, 1f, 0.4f, 0.83f, 1f, 0.1503f, 0.002f, [0f, 0f, 0f], 1.0629f, 0.003f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	bathroom         = EAXReverbProperties(0.1715f, 1f, 0.3162f, 0.2512f, 1f, 1.49f, 0.54f, 1f, 0.6531f, 0.007f, [0f, 0f, 0f], 3.2734f, 0.011f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	livingRoom       = EAXReverbProperties(0.9766f, 1f, 0.3162f, 0.001f, 1f, 0.5f, 0.1f, 1f, 0.2051f, 0.003f, [0f, 0f, 0f], 0.2805f, 0.004f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	loungeRoom       = reverbPresetLivingRoom,
+	stoneRoom        = EAXReverbProperties(1f, 1f, 0.3162f, 0.7079f, 1f, 2.31f, 0.64f, 1f, 0.4411f, 0.012f, [0f, 0f, 0f], 1.1003f, 0.017f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	auditorium       = EAXReverbProperties(1f, 1f, 0.3162f, 0.5781f, 1f, 4.32f, 0.59f, 1f, 0.4032f, 0.02f, [0f, 0f, 0f], 0.717f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	concertHall      = EAXReverbProperties(1f, 1f, 0.3162f, 0.5623f, 1f, 3.92f, 0.7f, 1f, 0.2427f, 0.02f, [0f, 0f, 0f], 0.9977f, 0.029f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	cave             = EAXReverbProperties(1f, 1f, 0.3162f, 1f, 1f, 2.91f, 1.3f, 1f, 0.5f, 0.015f, [0f, 0f, 0f], 0.7063f, 0.022f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	arena            = EAXReverbProperties(1f, 1f, 0.3162f, 0.4477f, 1f, 7.24f, 0.33f, 1f, 0.2612f, 0.02f, [0f, 0f, 0f], 1.0186f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	hangar           = EAXReverbProperties(1f, 1f, 0.3162f, 0.3162f, 1f, 10.05f, 0.23f, 1f, 0.5f, 0.02f, [0f, 0f, 0f], 1.256f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	carpetedHallway  = EAXReverbProperties(0.4287f, 1f, 0.3162f, 0.01f, 1f, 0.3f, 0.1f, 1f, 0.1215f, 0.002f, [0f, 0f, 0f], 0.1531f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	hallway          = EAXReverbProperties(0.3645f, 1f, 0.3162f, 0.7079f, 1f, 1.49f, 0.59f, 1f, 0.2458f, 0.007f, [0f, 0f, 0f], 1.6615f, 0.011f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	stoneCorridor    = EAXReverbProperties(1f, 1f, 0.3162f, 0.7612f, 1f, 2.7f, 0.79f, 1f, 0.2472f, 0.013f, [0f, 0f, 0f], 1.5758f, 0.02f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	alley            = EAXReverbProperties(1f, 0.3f, 0.3162f, 0.7328f, 1f, 1.49f, 0.86f, 1f, 0.25f, 0.007f, [0f, 0f, 0f], 0.9954f, 0.011f, [0f, 0f, 0f], 0.125f, 0.95f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	forest           = EAXReverbProperties(1f, 0.3f, 0.3162f, 0.0224f, 1f, 1.49f, 0.54f, 1f, 0.0525f, 0.162f, [0f, 0f, 0f], 0.7682f, 0.088f, [0f, 0f, 0f], 0.125f, 1f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	city             = EAXReverbProperties(1f, 0.5f, 0.3162f, 0.3981f, 1f, 1.49f, 0.67f, 1f, 0.073f, 0.007f, [0f, 0f, 0f], 0.1427f, 0.011f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	mountains        = EAXReverbProperties(1f, 0.27f, 0.3162f, 0.0562f, 1f, 1.49f, 0.21f, 1f, 0.0407f, 0.3f, [0f, 0f, 0f], 0.1919f, 0.1f, [0f, 0f, 0f], 0.25f, 1f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	quarry           = EAXReverbProperties(1f, 1f, 0.3162f, 0.3162f, 1f, 1.49f, 0.83f, 1f, 0f, 0.061f, [0f, 0f, 0f], 1.7783f, 0.025f, [0f, 0f, 0f], 0.125f, 0.7f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	plain            = EAXReverbProperties(1f, 0.21f, 0.3162f, 0.1f, 1f, 1.49f, 0.5f, 1f, 0.0585f, 0.179f, [0f, 0f, 0f], 0.1089f, 0.1f, [0f, 0f, 0f], 0.25f, 1f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	parkingLot       = EAXReverbProperties(1f, 1f, 0.3162f, 1f, 1f, 1.65f, 1.5f, 1f, 0.2082f, 0.008f, [0f, 0f, 0f], 0.2652f, 0.012f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	carPark          = reverbPresetParkingLot,
+	sewerPipe        = EAXReverbProperties(0.3071f, 0.8f, 0.3162f, 0.3162f, 1f, 2.81f, 0.14f, 1f, 1.6387f, 0.014f, [0f, 0f, 0f], 3.2471f, 0.021f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	underwater       = EAXReverbProperties(0.3645f, 1f, 0.3162f, 0.01f, 1f, 1.49f, 0.1f, 1f, 0.5963f, 0.007f, [0f, 0f, 0f], 7.0795f, 0.011f, [0f, 0f, 0f], 0.25f, 0f, 1.18f, 0.348f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	drugged          = EAXReverbProperties(0.4287f, 0.5f, 0.3162f, 1f, 1f, 8.39f, 1.39f, 1f, 0.876f, 0.002f, [0f, 0f, 0f], 3.1081f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 1f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	dizzy            = EAXReverbProperties(0.3645f, 0.6f, 0.3162f, 0.631f, 1f, 17.23f, 0.56f, 1f, 0.1392f, 0.02f, [0f, 0f, 0f], 0.4937f, 0.03f, [0f, 0f, 0f], 0.25f, 1f, 0.81f, 0.31f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	psychotic        = EAXReverbProperties(0.0625f, 0.5f, 0.3162f, 0.8404f, 1f, 7.56f, 0.91f, 1f, 0.4864f, 0.02f, [0f, 0f, 0f], 2.4378f, 0.03f, [0f, 0f, 0f], 0.25f, 0f, 4f, 1f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	
+	castleSmallRoom     = EAXReverbProperties(1f, 0.89f, 0.3162f, 0.3981f, 0.1f, 1.22f, 0.83f, 0.31f, 0.8913f, 0.022f, [0f, 0f, 0f], 1.9953f, 0.011f, [0f, 0f, 0f], 0.138f, 0.08f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1),
+	castleShortPassage  = EAXReverbProperties(1f, 0.89f, 0.3162f, 0.3162f, 0.1f, 2.32f, 0.83f, 0.31f, 0.8913f, 0.007f, [0f, 0f, 0f], 1.2589f, 0.023f, [0f, 0f, 0f], 0.138f, 0.08f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1),
+	castleMediumRoom    = EAXReverbProperties(1f, 0.93f, 0.3162f, 0.2818f, 0.1f, 2.04f, 0.83f, 0.46f, 0.631f, 0.022f, [0f, 0f, 0f], 1.5849f, 0.011f, [0f, 0f, 0f], 0.155f, 0.03f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1),
+	castleLargeRoom     = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.2818f, 0.1259f, 2.53f, 0.83f, 0.5f, 0.4467f, 0.034f, [0f, 0f, 0f], 1.2589f, 0.016f, [0f, 0f, 0f], 0.185f, 0.07f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1),
+	castleLongPassage   = EAXReverbProperties(1f, 0.89f, 0.3162f, 0.3981f, 0.1f, 3.42f, 0.83f, 0.31f, 0.8913f, 0.007f, [0f, 0f, 0f], 1.4125f, 0.023f, [0f, 0f, 0f], 0.138f, 0.08f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1),
+	castleHall          = EAXReverbProperties(1f, 0.81f, 0.3162f, 0.2818f, 0.1778f, 3.14f, 0.79f, 0.62f, 0.1778f, 0.056f, [0f, 0f, 0f], 1.122f, 0.024f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1),
+	castleCupboard      = EAXReverbProperties(1f, 0.89f, 0.3162f, 0.2818f, 0.1f, 0.67f, 0.87f, 0.31f, 1.4125f, 0.01f, [0f, 0f, 0f], 3.5481f, 0.007f, [0f, 0f, 0f], 0.138f, 0.08f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1),
+	castleCourtyard     = EAXReverbProperties(1f, 0.42f, 0.3162f, 0.4467f, 0.1995f, 2.13f, 0.61f, 0.23f, 0.2239f, 0.16f, [0f, 0f, 0f], 0.7079f, 0.036f, [0f, 0f, 0f], 0.25f, 0.37f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	castleAlcove        = EAXReverbProperties(1f, 0.89f, 0.3162f, 0.5012f, 0.1f, 1.64f, 0.87f, 0.31f, 1f, 0.007f, [0f, 0f, 0f], 1.4125f, 0.034f, [0f, 0f, 0f], 0.138f, 0.08f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1),
+	
+	factorySmallRoom     = EAXReverbProperties(0.3645f, 0.82f, 0.3162f, 0.7943f, 0.5012f, 1.72f, 0.65f, 1.31f, 0.7079f, 0.01f, [0f, 0f, 0f], 1.7783f, 0.024f, [0f, 0f, 0f], 0.119f, 0.07f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1),
+	factoryShortPassage  = EAXReverbProperties(0.3645f, 0.64f, 0.2512f, 0.7943f, 0.5012f, 2.53f, 0.65f, 1.31f, 1f, 0.01f, [0f, 0f, 0f], 1.2589f, 0.038f, [0f, 0f, 0f], 0.135f, 0.23f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1),
+	factoryMediumRoom    = EAXReverbProperties(0.4287f, 0.82f, 0.2512f, 0.7943f, 0.5012f, 2.76f, 0.65f, 1.31f, 0.2818f, 0.022f, [0f, 0f, 0f], 1.4125f, 0.023f, [0f, 0f, 0f], 0.174f, 0.07f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1),
+	factoryLargeRoom     = EAXReverbProperties(0.4287f, 0.75f, 0.2512f, 0.7079f, 0.631f, 4.24f, 0.51f, 1.31f, 0.1778f, 0.039f, [0f, 0f, 0f], 1.122f, 0.023f, [0f, 0f, 0f], 0.231f, 0.07f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1),
+	factoryLongPassage   = EAXReverbProperties(0.3645f, 0.64f, 0.2512f, 0.7943f, 0.5012f, 4.06f, 0.65f, 1.31f, 1f, 0.02f, [0f, 0f, 0f], 1.2589f, 0.037f, [0f, 0f, 0f], 0.135f, 0.23f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1),
+	factoryHall          = EAXReverbProperties(0.4287f, 0.75f, 0.3162f, 0.7079f, 0.631f, 7.43f, 0.51f, 1.31f, 0.0631f, 0.073f, [0f, 0f, 0f], 0.8913f, 0.027f, [0f, 0f, 0f], 0.25f, 0.07f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1),
+	factoryCupboard      = EAXReverbProperties(0.3071f, 0.63f, 0.2512f, 0.7943f, 0.5012f, 0.49f, 0.65f, 1.31f, 1.2589f, 0.01f, [0f, 0f, 0f], 1.9953f, 0.032f, [0f, 0f, 0f], 0.107f, 0.07f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1),
+	factoryCourtyard     = EAXReverbProperties(0.3071f, 0.57f, 0.3162f, 0.3162f, 0.631f, 2.32f, 0.29f, 0.56f, 0.2239f, 0.14f, [0f, 0f, 0f], 0.3981f, 0.039f, [0f, 0f, 0f], 0.25f, 0.29f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1),
+	factoryAlcove        = EAXReverbProperties(0.3645f, 0.59f, 0.2512f, 0.7943f, 0.5012f, 3.14f, 0.65f, 1.31f, 1.4125f, 0.01f, [0f, 0f, 0f], 1f, 0.038f, [0f, 0f, 0f], 0.114f, 0.1f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1),
+	
+	IcePalaceSmallRoom     = EAXReverbProperties(1f, 0.84f, 0.3162f, 0.5623f, 0.2818f, 1.51f, 1.53f, 0.27f, 0.8913f, 0.01f, [0f, 0f, 0f], 1.4125f, 0.011f, [0f, 0f, 0f], 0.164f, 0.14f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1),
+	IcePalaceShortPassage  = EAXReverbProperties(1f, 0.75f, 0.3162f, 0.5623f, 0.2818f, 1.79f, 1.46f, 0.28f, 0.5012f, 0.01f, [0f, 0f, 0f], 1.122f, 0.019f, [0f, 0f, 0f], 0.177f, 0.09f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1),
+	IcePalaceMediumRoom    = EAXReverbProperties(1f, 0.87f, 0.3162f, 0.5623f, 0.4467f, 2.22f, 1.53f, 0.32f, 0.3981f, 0.039f, [0f, 0f, 0f], 1.122f, 0.027f, [0f, 0f, 0f], 0.186f, 0.12f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1),
+	IcePalaceLargeRoom     = EAXReverbProperties(1f, 0.81f, 0.3162f, 0.5623f, 0.4467f, 3.14f, 1.53f, 0.32f, 0.2512f, 0.039f, [0f, 0f, 0f], 1f, 0.027f, [0f, 0f, 0f], 0.214f, 0.11f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1),
+	IcePalaceLongPassage   = EAXReverbProperties(1f, 0.77f, 0.3162f, 0.5623f, 0.3981f, 3.01f, 1.46f, 0.28f, 0.7943f, 0.012f, [0f, 0f, 0f], 1.2589f, 0.025f, [0f, 0f, 0f], 0.186f, 0.04f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1),
+	IcePalaceHall          = EAXReverbProperties(1f, 0.76f, 0.3162f, 0.4467f, 0.5623f, 5.49f, 1.53f, 0.38f, 0.1122f, 0.054f, [0f, 0f, 0f], 0.631f, 0.052f, [0f, 0f, 0f], 0.226f, 0.11f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1),
+	IcePalaceCupboard      = EAXReverbProperties(1f, 0.83f, 0.3162f, 0.5012f, 0.2239f, 0.76f, 1.53f, 0.26f, 1.122f, 0.012f, [0f, 0f, 0f], 1.9953f, 0.016f, [0f, 0f, 0f], 0.143f, 0.08f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1),
+	IcePalaceCourtyard     = EAXReverbProperties(1f, 0.59f, 0.3162f, 0.2818f, 0.3162f, 2.04f, 1.2f, 0.38f, 0.3162f, 0.173f, [0f, 0f, 0f], 0.3162f, 0.043f, [0f, 0f, 0f], 0.235f, 0.48f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1),
+	IcePalaceAlcove        = EAXReverbProperties(1f, 0.84f, 0.3162f, 0.5623f, 0.2818f, 2.76f, 1.46f, 0.28f, 1.122f, 0.01f, [0f, 0f, 0f], 0.8913f, 0.03f, [0f, 0f, 0f], 0.161f, 0.09f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1),
+	
+	spaceStationSmallRoom     = EAXReverbProperties(0.2109f, 0.7f, 0.3162f, 0.7079f, 0.8913f, 1.72f, 0.82f, 0.55f, 0.7943f, 0.007f, [0f, 0f, 0f], 1.4125f, 0.013f, [0f, 0f, 0f], 0.188f, 0.26f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1),
+	spaceStationShortPassage  = EAXReverbProperties(0.2109f, 0.87f, 0.3162f, 0.631f, 0.8913f, 3.57f, 0.5f, 0.55f, 1f, 0.012f, [0f, 0f, 0f], 1.122f, 0.016f, [0f, 0f, 0f], 0.172f, 0.2f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1),
+	spaceStationMediumRoom    = EAXReverbProperties(0.2109f, 0.75f, 0.3162f, 0.631f, 0.8913f, 3.01f, 0.5f, 0.55f, 0.3981f, 0.034f, [0f, 0f, 0f], 1.122f, 0.035f, [0f, 0f, 0f], 0.209f, 0.31f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1),
+	spaceStationLargeRoom     = EAXReverbProperties(0.3645f, 0.81f, 0.3162f, 0.631f, 0.8913f, 3.89f, 0.38f, 0.61f, 0.3162f, 0.056f, [0f, 0f, 0f], 0.8913f, 0.035f, [0f, 0f, 0f], 0.233f, 0.28f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1),
+	spaceStationLongPassage   = EAXReverbProperties(0.4287f, 0.82f, 0.3162f, 0.631f, 0.8913f, 4.62f, 0.62f, 0.55f, 1f, 0.012f, [0f, 0f, 0f], 1.2589f, 0.031f, [0f, 0f, 0f], 0.25f, 0.23f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1),
+	spaceStationHall          = EAXReverbProperties(0.4287f, 0.87f, 0.3162f, 0.631f, 0.8913f, 7.11f, 0.38f, 0.61f, 0.1778f, 0.1f, [0f, 0f, 0f], 0.631f, 0.047f, [0f, 0f, 0f], 0.25f, 0.25f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1),
+	spaceStationCupboard      = EAXReverbProperties(0.1715f, 0.56f, 0.3162f, 0.7079f, 0.8913f, 0.79f, 0.81f, 0.55f, 1.4125f, 0.007f, [0f, 0f, 0f], 1.7783f, 0.018f, [0f, 0f, 0f], 0.181f, 0.31f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1),
+	spaceStationAlcove        = EAXReverbProperties(0.2109f, 0.78f, 0.3162f, 0.7079f, 0.8913f, 1.16f, 0.81f, 0.55f, 1.4125f, 0.007f, [0f, 0f, 0f], 1f, 0.018f, [0f, 0f, 0f], 0.192f, 0.21f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1),
+	
+	woodenSmallRoom     = EAXReverbProperties(1f, 1f, 0.3162f, 0.1122f, 0.3162f, 0.79f, 0.32f, 0.87f, 1f, 0.032f, [0f, 0f, 0f], 0.8913f, 0.029f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1),
+	woodenShortPassage  = EAXReverbProperties(1f, 1f, 0.3162f, 0.1259f, 0.3162f, 1.75f, 0.5f, 0.87f, 0.8913f, 0.012f, [0f, 0f, 0f], 0.631f, 0.024f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1),
+	woodenMediumRoom    = EAXReverbProperties(1f, 1f, 0.3162f, 0.1f, 0.2818f, 1.47f, 0.42f, 0.82f, 0.8913f, 0.049f, [0f, 0f, 0f], 0.8913f, 0.029f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1),
+	woodenLargeRoom     = EAXReverbProperties(1f, 1f, 0.3162f, 0.0891f, 0.2818f, 2.65f, 0.33f, 0.82f, 0.8913f, 0.066f, [0f, 0f, 0f], 0.7943f, 0.049f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1),
+	woodenLongPassage   = EAXReverbProperties(1f, 1f, 0.3162f, 0.1f, 0.3162f, 1.99f, 0.4f, 0.79f, 1f, 0.02f, [0f, 0f, 0f], 0.4467f, 0.036f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1),
+	woodenHall          = EAXReverbProperties(1f, 1f, 0.3162f, 0.0794f, 0.2818f, 3.45f, 0.3f, 0.82f, 0.8913f, 0.088f, [0f, 0f, 0f], 0.7943f, 0.063f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1),
+	woodenCupboard      = EAXReverbProperties(1f, 1f, 0.3162f, 0.1413f, 0.3162f, 0.56f, 0.46f, 0.91f, 1.122f, 0.012f, [0f, 0f, 0f], 1.122f, 0.028f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1),
+	woodenCourtyard     = EAXReverbProperties(1f, 0.65f, 0.3162f, 0.0794f, 0.3162f, 1.79f, 0.35f, 0.79f, 0.5623f, 0.123f, [0f, 0f, 0f], 0.1f, 0.032f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1),
+	woodenAlcove        = EAXReverbProperties(1f, 1f, 0.3162f, 0.1259f, 0.3162f, 1.22f, 0.62f, 0.91f, 1.122f, 0.012f, [0f, 0f, 0f], 0.7079f, 0.024f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1),
+	
+	sportEmptyStadium       = EAXReverbProperties(1f, 1f, 0.3162f, 0.4467f, 0.7943f, 6.26f, 0.51f, 1.1f, 0.0631f, 0.183f, [0f, 0f, 0f], 0.3981f, 0.038f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	sportSquashCourt        = EAXReverbProperties(1f, 0.75f, 0.3162f, 0.3162f, 0.7943f, 2.22f, 0.91f, 1.16f, 0.4467f, 0.007f, [0f, 0f, 0f], 0.7943f, 0.011f, [0f, 0f, 0f], 0.126f, 0.19f, 0.25f, 0f, 0.9943f, 7176.8999f, 211.2f, 0f, 0x1),
+	sportSmallSwimmingpool  = EAXReverbProperties(1f, 0.7f, 0.3162f, 0.7943f, 0.8913f, 2.76f, 1.25f, 1.14f, 0.631f, 0.02f, [0f, 0f, 0f], 0.7943f, 0.03f, [0f, 0f, 0f], 0.179f, 0.15f, 0.895f, 0.19f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	sportLargeSwimmingpool  = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.7943f, 1f, 5.49f, 1.31f, 1.14f, 0.4467f, 0.039f, [0f, 0f, 0f], 0.5012f, 0.049f, [0f, 0f, 0f], 0.222f, 0.55f, 1.159f, 0.21f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	sportGymnasium          = EAXReverbProperties(1f, 0.81f, 0.3162f, 0.4467f, 0.8913f, 3.14f, 1.06f, 1.35f, 0.3981f, 0.029f, [0f, 0f, 0f], 0.5623f, 0.045f, [0f, 0f, 0f], 0.146f, 0.14f, 0.25f, 0f, 0.9943f, 7176.8999f, 211.2f, 0f, 0x1),
+	sportFullStadium        = EAXReverbProperties(1f, 1f, 0.3162f, 0.0708f, 0.7943f, 5.25f, 0.17f, 0.8f, 0.1f, 0.188f, [0f, 0f, 0f], 0.2818f, 0.038f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	sportStadiumTannoy      = EAXReverbProperties(1f, 0.78f, 0.3162f, 0.5623f, 0.5012f, 2.53f, 0.88f, 0.68f, 0.2818f, 0.23f, [0f, 0f, 0f], 0.5012f, 0.063f, [0f, 0f, 0f], 0.25f, 0.2f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	sportStadiumPASystem    = sportStadiumTannoy,
+	
+	prefabWorkshop      = EAXReverbProperties(0.4287f, 1f, 0.3162f, 0.1413f, 0.3981f, 0.76f, 1f, 1f, 1f, 0.012f, [0f, 0f, 0f], 1.122f, 0.012f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	prefabSchoolRoom    = EAXReverbProperties(0.4022f, 0.69f, 0.3162f, 0.631f, 0.5012f, 0.98f, 0.45f, 0.18f, 1.4125f, 0.017f, [0f, 0f, 0f], 1.4125f, 0.015f, [0f, 0f, 0f], 0.095f, 0.14f, 0.25f, 0f, 0.9943f, 7176.8999f, 211.2f, 0f, 0x1),
+	prefabPractiseRoom  = EAXReverbProperties(0.4022f, 0.87f, 0.3162f, 0.3981f, 0.5012f, 1.12f, 0.56f, 0.18f, 1.2589f, 0.01f, [0f, 0f, 0f], 1.4125f, 0.011f, [0f, 0f, 0f], 0.095f, 0.14f, 0.25f, 0f, 0.9943f, 7176.8999f, 211.2f, 0f, 0x1),
+	prefabOuthouse      = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.1122f, 0.1585f, 1.38f, 0.38f, 0.35f, 0.8913f, 0.024f, [0f, 0f, -0f], 0.631f, 0.044f, [0f, 0f, 0f], 0.121f, 0.17f, 0.25f, 0f, 0.9943f, 2854.3999f, 107.5f, 0f, 0x0),
+	prefabCaravan       = EAXReverbProperties(1f, 1f, 0.3162f, 0.0891f, 0.1259f, 0.43f, 1.5f, 1f, 1f, 0.012f, [0f, 0f, 0f], 1.9953f, 0.012f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	
+	domeTomb        = EAXReverbProperties(1f, 0.79f, 0.3162f, 0.3548f, 0.2239f, 4.18f, 0.21f, 0.1f, 0.3868f, 0.03f, [0f, 0f, 0f], 1.6788f, 0.022f, [0f, 0f, 0f], 0.177f, 0.19f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x0),
+	pipeSmall       = EAXReverbProperties(1f, 1f, 0.3162f, 0.3548f, 0.2239f, 5.04f, 0.1f, 0.1f, 0.5012f, 0.032f, [0f, 0f, 0f], 2.5119f, 0.015f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x1),
+	domeSaintPauls  = EAXReverbProperties(1f, 0.87f, 0.3162f, 0.3548f, 0.2239f, 10.48f, 0.19f, 0.1f, 0.1778f, 0.09f, [0f, 0f, 0f], 1.2589f, 0.042f, [0f, 0f, 0f], 0.25f, 0.12f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x1),
+	pipeLongThin    = EAXReverbProperties(0.256f, 0.91f, 0.3162f, 0.4467f, 0.2818f, 9.21f, 0.18f, 0.1f, 0.7079f, 0.01f, [0f, 0f, 0f], 0.7079f, 0.022f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x0),
+	pipeLarge       = EAXReverbProperties(1f, 1f, 0.3162f, 0.3548f, 0.2239f, 8.45f, 0.1f, 0.1f, 0.3981f, 0.046f, [0f, 0f, 0f], 1.5849f, 0.032f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x1),
+	pipeResonant    = EAXReverbProperties(0.1373f, 0.91f, 0.3162f, 0.4467f, 0.2818f, 6.81f, 0.18f, 0.1f, 0.7079f, 0.01f, [0f, 0f, 0f], 1f, 0.022f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x0),
+	
+	outdoorsBackyard       = EAXReverbProperties(1f, 0.45f, 0.3162f, 0.2512f, 0.5012f, 1.12f, 0.34f, 0.46f, 0.4467f, 0.069f, [0f, 0f, -0f], 0.7079f, 0.023f, [0f, 0f, 0f], 0.218f, 0.34f, 0.25f, 0f, 0.9943f, 4399.1001f, 242.9f, 0f, 0x0),
+	outdoorsRollingPlains  = EAXReverbProperties(1f, 0f, 0.3162f, 0.0112f, 0.631f, 2.13f, 0.21f, 0.46f, 0.1778f, 0.3f, [0f, 0f, -0f], 0.4467f, 0.019f, [0f, 0f, 0f], 0.25f, 1f, 0.25f, 0f, 0.9943f, 4399.1001f, 242.9f, 0f, 0x0),
+	outdoorsDeepCanyon     = EAXReverbProperties(1f, 0.74f, 0.3162f, 0.1778f, 0.631f, 3.89f, 0.21f, 0.46f, 0.3162f, 0.223f, [0f, 0f, -0f], 0.3548f, 0.019f, [0f, 0f, 0f], 0.25f, 1f, 0.25f, 0f, 0.9943f, 4399.1001f, 242.9f, 0f, 0x0),
+	outdoorsCreek          = EAXReverbProperties(1f, 0.35f, 0.3162f, 0.1778f, 0.5012f, 2.13f, 0.21f, 0.46f, 0.3981f, 0.115f, [0f, 0f, -0f], 0.1995f, 0.031f, [0f, 0f, 0f], 0.218f, 0.34f, 0.25f, 0f, 0.9943f, 4399.1001f, 242.9f, 0f, 0x0),
+	outdoorsValley         = EAXReverbProperties(1f, 0.28f, 0.3162f, 0.0282f, 0.1585f, 2.88f, 0.26f, 0.35f, 0.1413f, 0.263f, [0f, 0f, -0f], 0.3981f, 0.1f, [0f, 0f, 0f], 0.25f, 0.34f, 0.25f, 0f, 0.9943f, 2854.3999f, 107.5f, 0f, 0x0),
+	
+	moodHeaven  = EAXReverbProperties(1f, 0.94f, 0.3162f, 0.7943f, 0.4467f, 5.04f, 1.12f, 0.56f, 0.2427f, 0.02f, [0f, 0f, 0f], 1.2589f, 0.029f, [0f, 0f, 0f], 0.25f, 0.08f, 2.742f, 0.05f, 0.9977f, 5000f, 250f, 0f, 0x1),
+	moodHell    = EAXReverbProperties(1f, 0.57f, 0.3162f, 0.3548f, 0.4467f, 3.57f, 0.49f, 2f, 0f, 0.02f, [0f, 0f, 0f], 1.4125f, 0.03f, [0f, 0f, 0f], 0.11f, 0.04f, 2.109f, 0.52f, 0.9943f, 5000f, 139.5f, 0f, 0x0),
+	moodMemory  = EAXReverbProperties(1f, 0.85f, 0.3162f, 0.631f, 0.3548f, 4.06f, 0.82f, 0.56f, 0.0398f, 0f, [0f, 0f, 0f], 1.122f, 0f, [0f, 0f, 0f], 0.25f, 0f, 0.474f, 0.45f, 0.9886f, 5000f, 250f, 0f, 0x0),
+	
+	drivingCommentator      = EAXReverbProperties(1f, 0f, 0.3162f, 0.5623f, 0.5012f, 2.42f, 0.88f, 0.68f, 0.1995f, 0.093f, [0f, 0f, 0f], 0.2512f, 0.017f, [0f, 0f, 0f], 0.25f, 1f, 0.25f, 0f, 0.9886f, 5000f, 250f, 0f, 0x1),
+	drivingPitGarage        = EAXReverbProperties(0.4287f, 0.59f, 0.3162f, 0.7079f, 0.5623f, 1.72f, 0.93f, 0.87f, 0.5623f, 0f, [0f, 0f, 0f], 1.2589f, 0.016f, [0f, 0f, 0f], 0.25f, 0.11f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0),
+	drivingIncarRacer       = EAXReverbProperties(0.0832f, 0.8f, 0.3162f, 1f, 0.7943f, 0.17f, 2f, 0.41f, 1.7783f, 0.007f, [0f, 0f, 0f], 0.7079f, 0.015f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 10268.2002f, 251f, 0f, 0x1),
+	drivingIncarSports      = EAXReverbProperties(0.0832f, 0.8f, 0.3162f, 0.631f, 1f, 0.17f, 0.75f, 0.41f, 1f, 0.01f, [0f, 0f, 0f], 0.5623f, 0f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 10268.2002f, 251f, 0f, 0x1),
+	drivingIncarLuxury      = EAXReverbProperties(0.256f, 1f, 0.3162f, 0.1f, 0.5012f, 0.13f, 0.41f, 0.46f, 0.7943f, 0.01f, [0f, 0f, 0f], 1.5849f, 0.01f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 10268.2002f, 251f, 0f, 0x1),
+	drivingFullGrandStand   = EAXReverbProperties(1f, 1f, 0.3162f, 0.2818f, 0.631f, 3.01f, 1.37f, 1.28f, 0.3548f, 0.09f, [0f, 0f, 0f], 0.1778f, 0.049f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 10420.2002f, 250f, 0f, 0x0),
+	drivingEmptyGrandStand  = EAXReverbProperties(1f, 1f, 0.3162f, 1f, 0.7943f, 4.62f, 1.75f, 1.4f, 0.2082f, 0.09f, [0f, 0f, 0f], 0.2512f, 0.049f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 10420.2002f, 250f, 0f, 0x0),
+	drivingTunnel           = EAXReverbProperties(1f, 0.81f, 0.3162f, 0.3981f, 0.8913f, 3.42f, 0.94f, 1.31f, 0.7079f, 0.051f, [0f, 0f, 0f], 0.7079f, 0.047f, [0f, 0f, 0f], 0.214f, 0.05f, 0.25f, 0f, 0.9943f, 5000f, 155.3f, 0f, 0x1),
+	
+	cityStreets    = EAXReverbProperties(1f, 0.78f, 0.3162f, 0.7079f, 0.8913f, 1.79f, 1.12f, 0.91f, 0.2818f, 0.046f, [0f, 0f, 0f], 0.1995f, 0.028f, [0f, 0f, 0f], 0.25f, 0.2f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	citySubway     = EAXReverbProperties(1f, 0.74f, 0.3162f, 0.7079f, 0.8913f, 3.01f, 1.23f, 0.91f, 0.7079f, 0.046f, [0f, 0f, 0f], 1.2589f, 0.028f, [0f, 0f, 0f], 0.125f, 0.21f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	cityMuseum     = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.1778f, 0.1778f, 3.28f, 1.4f, 0.57f, 0.2512f, 0.039f, [0f, 0f, -0f], 0.8913f, 0.034f, [0f, 0f, 0f], 0.13f, 0.17f, 0.25f, 0f, 0.9943f, 2854.3999f, 107.5f, 0f, 0x0),
+	cityLibrary    = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.2818f, 0.0891f, 2.76f, 0.89f, 0.41f, 0.3548f, 0.029f, [0f, 0f, -0f], 0.8913f, 0.02f, [0f, 0f, 0f], 0.13f, 0.17f, 0.25f, 0f, 0.9943f, 2854.3999f, 107.5f, 0f, 0x0),
+	cityUnderpass  = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.4467f, 0.8913f, 3.57f, 1.12f, 0.91f, 0.3981f, 0.059f, [0f, 0f, 0f], 0.8913f, 0.037f, [0f, 0f, 0f], 0.25f, 0.14f, 0.25f, 0f, 0.992f, 5000f, 250f, 0f, 0x1),
+	cityAbandoned  = EAXReverbProperties(1f, 0.69f, 0.3162f, 0.7943f, 0.8913f, 3.28f, 1.17f, 0.91f, 0.4467f, 0.044f, [0f, 0f, 0f], 0.2818f, 0.024f, [0f, 0f, 0f], 0.25f, 0.2f, 0.25f, 0f, 0.9966f, 5000f, 250f, 0f, 0x1),
+	
+	dustyRoom       = EAXReverbProperties(0.3645f, 0.56f, 0.3162f, 0.7943f, 0.7079f, 1.79f, 0.38f, 0.21f, 0.5012f, 0.002f, [0f, 0f, 0f], 1.2589f, 0.006f, [0f, 0f, 0f], 0.202f, 0.05f, 0.25f, 0f, 0.9886f, 13046f, 163.3f, 0f, 0x1),
+	chapel          = EAXReverbProperties(1f, 0.84f, 0.3162f, 0.5623f, 1f, 4.62f, 0.64f, 1.23f, 0.4467f, 0.032f, [0f, 0f, 0f], 0.7943f, 0.049f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0.11f, 0.9943f, 5000f, 250f, 0f, 0x1),
+	smallWaterRoom  = EAXReverbProperties(1f, 0.7f, 0.3162f, 0.4477f, 1f, 1.51f, 1.25f, 1.14f, 0.8913f, 0.02f, [0f, 0f, 0f], 1.4125f, 0.03f, [0f, 0f, 0f], 0.179f, 0.15f, 0.895f, 0.19f, 0.992f, 5000f, 250f, 0f, 0x0),
 }
-
-enum reverbPresetCASTLE_SMALLROOM = EAXReverbProperties(1f, 0.89f, 0.3162f, 0.3981f, 0.1f, 1.22f, 0.83f, 0.31f, 0.8913f, 0.022f, [0f, 0f, 0f], 1.9953f, 0.011f, [0f, 0f, 0f], 0.138f, 0.08f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1);
-
-enum reverbPresetCASTLE_SHORTPASSAGE = EAXReverbProperties(1f, 0.89f, 0.3162f, 0.3162f, 0.1f, 2.32f, 0.83f, 0.31f, 0.8913f, 0.007f, [0f, 0f, 0f], 1.2589f, 0.023f, [0f, 0f, 0f], 0.138f, 0.08f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1);
-
-enum reverbPresetCASTLE_MEDIUMROOM = EAXReverbProperties(1f, 0.93f, 0.3162f, 0.2818f, 0.1f, 2.04f, 0.83f, 0.46f, 0.631f, 0.022f, [0f, 0f, 0f], 1.5849f, 0.011f, [0f, 0f, 0f], 0.155f, 0.03f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1);
-
-enum reverbPresetCASTLE_LARGEROOM = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.2818f, 0.1259f, 2.53f, 0.83f, 0.5f, 0.4467f, 0.034f, [0f, 0f, 0f], 1.2589f, 0.016f, [0f, 0f, 0f], 0.185f, 0.07f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1);
-
-enum reverbPresetCASTLE_LONGPASSAGE = EAXReverbProperties(1f, 0.89f, 0.3162f, 0.3981f, 0.1f, 3.42f, 0.83f, 0.31f, 0.8913f, 0.007f, [0f, 0f, 0f], 1.4125f, 0.023f, [0f, 0f, 0f], 0.138f, 0.08f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1);
-
-enum reverbPresetCASTLE_HALL = EAXReverbProperties(1f, 0.81f, 0.3162f, 0.2818f, 0.1778f, 3.14f, 0.79f, 0.62f, 0.1778f, 0.056f, [0f, 0f, 0f], 1.122f, 0.024f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1);
-
-enum reverbPresetCASTLE_CUPBOARD = EAXReverbProperties(1f, 0.89f, 0.3162f, 0.2818f, 0.1f, 0.67f, 0.87f, 0.31f, 1.4125f, 0.01f, [0f, 0f, 0f], 3.5481f, 0.007f, [0f, 0f, 0f], 0.138f, 0.08f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1);
-
-enum reverbPresetCASTLE_COURTYARD = EAXReverbProperties(1f, 0.42f, 0.3162f, 0.4467f, 0.1995f, 2.13f, 0.61f, 0.23f, 0.2239f, 0.16f, [0f, 0f, 0f], 0.7079f, 0.036f, [0f, 0f, 0f], 0.25f, 0.37f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0);
-
-enum reverbPresetCASTLE_ALCOVE = EAXReverbProperties(1f, 0.89f, 0.3162f, 0.5012f, 0.1f, 1.64f, 0.87f, 0.31f, 1f, 0.007f, [0f, 0f, 0f], 1.4125f, 0.034f, [0f, 0f, 0f], 0.138f, 0.08f, 0.25f, 0f, 0.9943f, 5168.6001f, 139.5f, 0f, 0x1);
-
-
-enum reverbPresetFACTORY_SMALLROOM = EAXReverbProperties(0.3645f, 0.82f, 0.3162f, 0.7943f, 0.5012f, 1.72f, 0.65f, 1.31f, 0.7079f, 0.01f, [0f, 0f, 0f], 1.7783f, 0.024f, [0f, 0f, 0f], 0.119f, 0.07f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1);
-
-enum reverbPresetFACTORY_SHORTPASSAGE = EAXReverbProperties(0.3645f, 0.64f, 0.2512f, 0.7943f, 0.5012f, 2.53f, 0.65f, 1.31f, 1f, 0.01f, [0f, 0f, 0f], 1.2589f, 0.038f, [0f, 0f, 0f], 0.135f, 0.23f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1);
-
-enum reverbPresetFACTORY_MEDIUMROOM = EAXReverbProperties(0.4287f, 0.82f, 0.2512f, 0.7943f, 0.5012f, 2.76f, 0.65f, 1.31f, 0.2818f, 0.022f, [0f, 0f, 0f], 1.4125f, 0.023f, [0f, 0f, 0f], 0.174f, 0.07f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1);
-
-enum reverbPresetFACTORY_LARGEROOM = EAXReverbProperties(0.4287f, 0.75f, 0.2512f, 0.7079f, 0.631f, 4.24f, 0.51f, 1.31f, 0.1778f, 0.039f, [0f, 0f, 0f], 1.122f, 0.023f, [0f, 0f, 0f], 0.231f, 0.07f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1);
-
-enum reverbPresetFACTORY_LONGPASSAGE = EAXReverbProperties(0.3645f, 0.64f, 0.2512f, 0.7943f, 0.5012f, 4.06f, 0.65f, 1.31f, 1f, 0.02f, [0f, 0f, 0f], 1.2589f, 0.037f, [0f, 0f, 0f], 0.135f, 0.23f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1);
-
-enum reverbPresetFACTORY_HALL = EAXReverbProperties(0.4287f, 0.75f, 0.3162f, 0.7079f, 0.631f, 7.43f, 0.51f, 1.31f, 0.0631f, 0.073f, [0f, 0f, 0f], 0.8913f, 0.027f, [0f, 0f, 0f], 0.25f, 0.07f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1);
-
-enum reverbPresetFACTORY_CUPBOARD = EAXReverbProperties(0.3071f, 0.63f, 0.2512f, 0.7943f, 0.5012f, 0.49f, 0.65f, 1.31f, 1.2589f, 0.01f, [0f, 0f, 0f], 1.9953f, 0.032f, [0f, 0f, 0f], 0.107f, 0.07f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1);
-
-enum reverbPresetFACTORY_COURTYARD = EAXReverbProperties(0.3071f, 0.57f, 0.3162f, 0.3162f, 0.631f, 2.32f, 0.29f, 0.56f, 0.2239f, 0.14f, [0f, 0f, 0f], 0.3981f, 0.039f, [0f, 0f, 0f], 0.25f, 0.29f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1);
-
-enum reverbPresetFACTORY_ALCOVE = EAXReverbProperties(0.3645f, 0.59f, 0.2512f, 0.7943f, 0.5012f, 3.14f, 0.65f, 1.31f, 1.4125f, 0.01f, [0f, 0f, 0f], 1f, 0.038f, [0f, 0f, 0f], 0.114f, 0.1f, 0.25f, 0f, 0.9943f, 3762.6001f, 362.5f, 0f, 0x1);
-
-
-enum reverbPresetICEPALACE_SMALLROOM = EAXReverbProperties(1f, 0.84f, 0.3162f, 0.5623f, 0.2818f, 1.51f, 1.53f, 0.27f, 0.8913f, 0.01f, [0f, 0f, 0f], 1.4125f, 0.011f, [0f, 0f, 0f], 0.164f, 0.14f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1);
-
-enum reverbPresetICEPALACE_SHORTPASSAGE = EAXReverbProperties(1f, 0.75f, 0.3162f, 0.5623f, 0.2818f, 1.79f, 1.46f, 0.28f, 0.5012f, 0.01f, [0f, 0f, 0f], 1.122f, 0.019f, [0f, 0f, 0f], 0.177f, 0.09f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1);
-
-enum reverbPresetICEPALACE_MEDIUMROOM = EAXReverbProperties(1f, 0.87f, 0.3162f, 0.5623f, 0.4467f, 2.22f, 1.53f, 0.32f, 0.3981f, 0.039f, [0f, 0f, 0f], 1.122f, 0.027f, [0f, 0f, 0f], 0.186f, 0.12f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1);
-
-enum reverbPresetICEPALACE_LARGEROOM = EAXReverbProperties(1f, 0.81f, 0.3162f, 0.5623f, 0.4467f, 3.14f, 1.53f, 0.32f, 0.2512f, 0.039f, [0f, 0f, 0f], 1f, 0.027f, [0f, 0f, 0f], 0.214f, 0.11f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1);
-
-enum reverbPresetICEPALACE_LONGPASSAGE = EAXReverbProperties(1f, 0.77f, 0.3162f, 0.5623f, 0.3981f, 3.01f, 1.46f, 0.28f, 0.7943f, 0.012f, [0f, 0f, 0f], 1.2589f, 0.025f, [0f, 0f, 0f], 0.186f, 0.04f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1);
-
-enum reverbPresetICEPALACE_HALL = EAXReverbProperties(1f, 0.76f, 0.3162f, 0.4467f, 0.5623f, 5.49f, 1.53f, 0.38f, 0.1122f, 0.054f, [0f, 0f, 0f], 0.631f, 0.052f, [0f, 0f, 0f], 0.226f, 0.11f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1);
-
-enum reverbPresetICEPALACE_CUPBOARD = EAXReverbProperties(1f, 0.83f, 0.3162f, 0.5012f, 0.2239f, 0.76f, 1.53f, 0.26f, 1.122f, 0.012f, [0f, 0f, 0f], 1.9953f, 0.016f, [0f, 0f, 0f], 0.143f, 0.08f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1);
-
-enum reverbPresetICEPALACE_COURTYARD = EAXReverbProperties(1f, 0.59f, 0.3162f, 0.2818f, 0.3162f, 2.04f, 1.2f, 0.38f, 0.3162f, 0.173f, [0f, 0f, 0f], 0.3162f, 0.043f, [0f, 0f, 0f], 0.235f, 0.48f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1);
-
-enum reverbPresetICEPALACE_ALCOVE = EAXReverbProperties(1f, 0.84f, 0.3162f, 0.5623f, 0.2818f, 2.76f, 1.46f, 0.28f, 1.122f, 0.01f, [0f, 0f, 0f], 0.8913f, 0.03f, [0f, 0f, 0f], 0.161f, 0.09f, 0.25f, 0f, 0.9943f, 12428.5f, 99.6f, 0f, 0x1);
-
-
-enum reverbPresetSPACESTATION_SMALLROOM = EAXReverbProperties(0.2109f, 0.7f, 0.3162f, 0.7079f, 0.8913f, 1.72f, 0.82f, 0.55f, 0.7943f, 0.007f, [0f, 0f, 0f], 1.4125f, 0.013f, [0f, 0f, 0f], 0.188f, 0.26f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1);
-
-enum reverbPresetSPACESTATION_SHORTPASSAGE = EAXReverbProperties(0.2109f, 0.87f, 0.3162f, 0.631f, 0.8913f, 3.57f, 0.5f, 0.55f, 1f, 0.012f, [0f, 0f, 0f], 1.122f, 0.016f, [0f, 0f, 0f], 0.172f, 0.2f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1);
-
-enum reverbPresetSPACESTATION_MEDIUMROOM = EAXReverbProperties(0.2109f, 0.75f, 0.3162f, 0.631f, 0.8913f, 3.01f, 0.5f, 0.55f, 0.3981f, 0.034f, [0f, 0f, 0f], 1.122f, 0.035f, [0f, 0f, 0f], 0.209f, 0.31f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1);
-
-enum reverbPresetSPACESTATION_LARGEROOM = EAXReverbProperties(0.3645f, 0.81f, 0.3162f, 0.631f, 0.8913f, 3.89f, 0.38f, 0.61f, 0.3162f, 0.056f, [0f, 0f, 0f], 0.8913f, 0.035f, [0f, 0f, 0f], 0.233f, 0.28f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1);
-
-enum reverbPresetSPACESTATION_LONGPASSAGE = EAXReverbProperties(0.4287f, 0.82f, 0.3162f, 0.631f, 0.8913f, 4.62f, 0.62f, 0.55f, 1f, 0.012f, [0f, 0f, 0f], 1.2589f, 0.031f, [0f, 0f, 0f], 0.25f, 0.23f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1);
-
-enum reverbPresetSPACESTATION_HALL = EAXReverbProperties(0.4287f, 0.87f, 0.3162f, 0.631f, 0.8913f, 7.11f, 0.38f, 0.61f, 0.1778f, 0.1f, [0f, 0f, 0f], 0.631f, 0.047f, [0f, 0f, 0f], 0.25f, 0.25f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1);
-
-enum reverbPresetSPACESTATION_CUPBOARD = EAXReverbProperties(0.1715f, 0.56f, 0.3162f, 0.7079f, 0.8913f, 0.79f, 0.81f, 0.55f, 1.4125f, 0.007f, [0f, 0f, 0f], 1.7783f, 0.018f, [0f, 0f, 0f], 0.181f, 0.31f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1);
-
-enum reverbPresetSPACESTATION_ALCOVE = EAXReverbProperties(0.2109f, 0.78f, 0.3162f, 0.7079f, 0.8913f, 1.16f, 0.81f, 0.55f, 1.4125f, 0.007f, [0f, 0f, 0f], 1f, 0.018f, [0f, 0f, 0f], 0.192f, 0.21f, 0.25f, 0f, 0.9943f, 3316.1001f, 458.2f, 0f, 0x1);
-
-
-enum reverbPresetWOODEN_SMALLROOM = EAXReverbProperties(1f, 1f, 0.3162f, 0.1122f, 0.3162f, 0.79f, 0.32f, 0.87f, 1f, 0.032f, [0f, 0f, 0f], 0.8913f, 0.029f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1);
-
-enum reverbPresetWOODEN_SHORTPASSAGE = EAXReverbProperties(1f, 1f, 0.3162f, 0.1259f, 0.3162f, 1.75f, 0.5f, 0.87f, 0.8913f, 0.012f, [0f, 0f, 0f], 0.631f, 0.024f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1);
-
-enum reverbPresetWOODEN_MEDIUMROOM = EAXReverbProperties(1f, 1f, 0.3162f, 0.1f, 0.2818f, 1.47f, 0.42f, 0.82f, 0.8913f, 0.049f, [0f, 0f, 0f], 0.8913f, 0.029f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1);
-
-enum reverbPresetWOODEN_LARGEROOM = EAXReverbProperties(1f, 1f, 0.3162f, 0.0891f, 0.2818f, 2.65f, 0.33f, 0.82f, 0.8913f, 0.066f, [0f, 0f, 0f], 0.7943f, 0.049f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1);
-
-enum reverbPresetWOODEN_LONGPASSAGE = EAXReverbProperties(1f, 1f, 0.3162f, 0.1f, 0.3162f, 1.99f, 0.4f, 0.79f, 1f, 0.02f, [0f, 0f, 0f], 0.4467f, 0.036f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1);
-
-enum reverbPresetWOODEN_HALL = EAXReverbProperties(1f, 1f, 0.3162f, 0.0794f, 0.2818f, 3.45f, 0.3f, 0.82f, 0.8913f, 0.088f, [0f, 0f, 0f], 0.7943f, 0.063f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1);
-
-enum reverbPresetWOODEN_CUPBOARD = EAXReverbProperties(1f, 1f, 0.3162f, 0.1413f, 0.3162f, 0.56f, 0.46f, 0.91f, 1.122f, 0.012f, [0f, 0f, 0f], 1.122f, 0.028f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1);
-
-enum reverbPresetWOODEN_COURTYARD = EAXReverbProperties(1f, 0.65f, 0.3162f, 0.0794f, 0.3162f, 1.79f, 0.35f, 0.79f, 0.5623f, 0.123f, [0f, 0f, 0f], 0.1f, 0.032f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1);
-
-enum reverbPresetWOODEN_ALCOVE = EAXReverbProperties(1f, 1f, 0.3162f, 0.1259f, 0.3162f, 1.22f, 0.62f, 0.91f, 1.122f, 0.012f, [0f, 0f, 0f], 0.7079f, 0.024f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 4705f, 99.6f, 0f, 0x1);
-
-
-enum reverbPresetSPORT_EMPTYSTADIUM = EAXReverbProperties(1f, 1f, 0.3162f, 0.4467f, 0.7943f, 6.26f, 0.51f, 1.1f, 0.0631f, 0.183f, [0f, 0f, 0f], 0.3981f, 0.038f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1);
-
-enum reverbPresetSPORT_SQUASHCOURT = EAXReverbProperties(1f, 0.75f, 0.3162f, 0.3162f, 0.7943f, 2.22f, 0.91f, 1.16f, 0.4467f, 0.007f, [0f, 0f, 0f], 0.7943f, 0.011f, [0f, 0f, 0f], 0.126f, 0.19f, 0.25f, 0f, 0.9943f, 7176.8999f, 211.2f, 0f, 0x1);
-
-enum reverbPresetSPORT_SMALLSWIMMINGPOOL = EAXReverbProperties(1f, 0.7f, 0.3162f, 0.7943f, 0.8913f, 2.76f, 1.25f, 1.14f, 0.631f, 0.02f, [0f, 0f, 0f], 0.7943f, 0.03f, [0f, 0f, 0f], 0.179f, 0.15f, 0.895f, 0.19f, 0.9943f, 5000f, 250f, 0f, 0x0);
-
-enum reverbPresetSPORT_LARGESWIMMINGPOOL = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.7943f, 1f, 5.49f, 1.31f, 1.14f, 0.4467f, 0.039f, [0f, 0f, 0f], 0.5012f, 0.049f, [0f, 0f, 0f], 0.222f, 0.55f, 1.159f, 0.21f, 0.9943f, 5000f, 250f, 0f, 0x0);
-
-enum reverbPresetSPORT_GYMNASIUM = EAXReverbProperties(1f, 0.81f, 0.3162f, 0.4467f, 0.8913f, 3.14f, 1.06f, 1.35f, 0.3981f, 0.029f, [0f, 0f, 0f], 0.5623f, 0.045f, [0f, 0f, 0f], 0.146f, 0.14f, 0.25f, 0f, 0.9943f, 7176.8999f, 211.2f, 0f, 0x1);
-
-enum reverbPresetSPORT_FULLSTADIUM = EAXReverbProperties(1f, 1f, 0.3162f, 0.0708f, 0.7943f, 5.25f, 0.17f, 0.8f, 0.1f, 0.188f, [0f, 0f, 0f], 0.2818f, 0.038f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1);
-
-enum reverbPresetSPORT_STADIUMTANNOY = EAXReverbProperties(1f, 0.78f, 0.3162f, 0.5623f, 0.5012f, 2.53f, 0.88f, 0.68f, 0.2818f, 0.23f, [0f, 0f, 0f], 0.5012f, 0.063f, [0f, 0f, 0f], 0.25f, 0.2f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1);
-
-
-enum reverbPresetPREFAB_WORKSHOP = EAXReverbProperties(0.4287f, 1f, 0.3162f, 0.1413f, 0.3981f, 0.76f, 1f, 1f, 1f, 0.012f, [0f, 0f, 0f], 1.122f, 0.012f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0);
-
-enum reverbPresetPREFAB_SCHOOLROOM = EAXReverbProperties(0.4022f, 0.69f, 0.3162f, 0.631f, 0.5012f, 0.98f, 0.45f, 0.18f, 1.4125f, 0.017f, [0f, 0f, 0f], 1.4125f, 0.015f, [0f, 0f, 0f], 0.095f, 0.14f, 0.25f, 0f, 0.9943f, 7176.8999f, 211.2f, 0f, 0x1);
-
-enum reverbPresetPREFAB_PRACTISEROOM = EAXReverbProperties(0.4022f, 0.87f, 0.3162f, 0.3981f, 0.5012f, 1.12f, 0.56f, 0.18f, 1.2589f, 0.01f, [0f, 0f, 0f], 1.4125f, 0.011f, [0f, 0f, 0f], 0.095f, 0.14f, 0.25f, 0f, 0.9943f, 7176.8999f, 211.2f, 0f, 0x1);
-
-enum reverbPresetPREFAB_OUTHOUSE = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.1122f, 0.1585f, 1.38f, 0.38f, 0.35f, 0.8913f, 0.024f, [0f, 0f, -0f], 0.631f, 0.044f, [0f, 0f, 0f], 0.121f, 0.17f, 0.25f, 0f, 0.9943f, 2854.3999f, 107.5f, 0f, 0x0);
-
-enum reverbPresetPREFAB_CARAVAN = EAXReverbProperties(1f, 1f, 0.3162f, 0.0891f, 0.1259f, 0.43f, 1.5f, 1f, 1f, 0.012f, [0f, 0f, 0f], 1.9953f, 0.012f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0);
-
-
-enum reverbPresetDOME_TOMB = EAXReverbProperties(1f, 0.79f, 0.3162f, 0.3548f, 0.2239f, 4.18f, 0.21f, 0.1f, 0.3868f, 0.03f, [0f, 0f, 0f], 1.6788f, 0.022f, [0f, 0f, 0f], 0.177f, 0.19f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x0);
-
-enum reverbPresetPIPE_SMALL = EAXReverbProperties(1f, 1f, 0.3162f, 0.3548f, 0.2239f, 5.04f, 0.1f, 0.1f, 0.5012f, 0.032f, [0f, 0f, 0f], 2.5119f, 0.015f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x1);
-
-enum reverbPresetDOME_SAINTPAULS = EAXReverbProperties(1f, 0.87f, 0.3162f, 0.3548f, 0.2239f, 10.48f, 0.19f, 0.1f, 0.1778f, 0.09f, [0f, 0f, 0f], 1.2589f, 0.042f, [0f, 0f, 0f], 0.25f, 0.12f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x1);
-
-enum reverbPresetPIPE_LONGTHIN = EAXReverbProperties(0.256f, 0.91f, 0.3162f, 0.4467f, 0.2818f, 9.21f, 0.18f, 0.1f, 0.7079f, 0.01f, [0f, 0f, 0f], 0.7079f, 0.022f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x0);
-
-enum reverbPresetPIPE_LARGE = EAXReverbProperties(1f, 1f, 0.3162f, 0.3548f, 0.2239f, 8.45f, 0.1f, 0.1f, 0.3981f, 0.046f, [0f, 0f, 0f], 1.5849f, 0.032f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x1);
-
-enum reverbPresetPIPE_RESONANT = EAXReverbProperties(0.1373f, 0.91f, 0.3162f, 0.4467f, 0.2818f, 6.81f, 0.18f, 0.1f, 0.7079f, 0.01f, [0f, 0f, 0f], 1f, 0.022f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 2854.3999f, 20f, 0f, 0x0);
-
-
-enum reverbPresetOUTDOORS_BACKYARD = EAXReverbProperties(1f, 0.45f, 0.3162f, 0.2512f, 0.5012f, 1.12f, 0.34f, 0.46f, 0.4467f, 0.069f, [0f, 0f, -0f], 0.7079f, 0.023f, [0f, 0f, 0f], 0.218f, 0.34f, 0.25f, 0f, 0.9943f, 4399.1001f, 242.9f, 0f, 0x0);
-
-enum reverbPresetOutdoorsROLLINGPLAINS = EAXReverbProperties(1f, 0f, 0.3162f, 0.0112f, 0.631f, 2.13f, 0.21f, 0.46f, 0.1778f, 0.3f, [0f, 0f, -0f], 0.4467f, 0.019f, [0f, 0f, 0f], 0.25f, 1f, 0.25f, 0f, 0.9943f, 4399.1001f, 242.9f, 0f, 0x0);
-
-enum reverbPresetOutdoorsDEEPCANYON = EAXReverbProperties(1f, 0.74f, 0.3162f, 0.1778f, 0.631f, 3.89f, 0.21f, 0.46f, 0.3162f, 0.223f, [0f, 0f, -0f], 0.3548f, 0.019f, [0f, 0f, 0f], 0.25f, 1f, 0.25f, 0f, 0.9943f, 4399.1001f, 242.9f, 0f, 0x0);
-
-enum reverbPresetOutdoorsCREEK = EAXReverbProperties(1f, 0.35f, 0.3162f, 0.1778f, 0.5012f, 2.13f, 0.21f, 0.46f, 0.3981f, 0.115f, [0f, 0f, -0f], 0.1995f, 0.031f, [0f, 0f, 0f], 0.218f, 0.34f, 0.25f, 0f, 0.9943f, 4399.1001f, 242.9f, 0f, 0x0);
-
-enum reverbPresetOutdoorsVALLEY = EAXReverbProperties(1f, 0.28f, 0.3162f, 0.0282f, 0.1585f, 2.88f, 0.26f, 0.35f, 0.1413f, 0.263f, [0f, 0f, -0f], 0.3981f, 0.1f, [0f, 0f, 0f], 0.25f, 0.34f, 0.25f, 0f, 0.9943f, 2854.3999f, 107.5f, 0f, 0x0);
-
-
-enum reverbPresetMOOD_HEAVEN = EAXReverbProperties(1f, 0.94f, 0.3162f, 0.7943f, 0.4467f, 5.04f, 1.12f, 0.56f, 0.2427f, 0.02f, [0f, 0f, 0f], 1.2589f, 0.029f, [0f, 0f, 0f], 0.25f, 0.08f, 2.742f, 0.05f, 0.9977f, 5000f, 250f, 0f, 0x1);
-
-enum reverbPresetMOOD_HELL = EAXReverbProperties(1f, 0.57f, 0.3162f, 0.3548f, 0.4467f, 3.57f, 0.49f, 2f, 0f, 0.02f, [0f, 0f, 0f], 1.4125f, 0.03f, [0f, 0f, 0f], 0.11f, 0.04f, 2.109f, 0.52f, 0.9943f, 5000f, 139.5f, 0f, 0x0);
-
-enum reverbPresetMOOD_MEMORY = EAXReverbProperties(1f, 0.85f, 0.3162f, 0.631f, 0.3548f, 4.06f, 0.82f, 0.56f, 0.0398f, 0f, [0f, 0f, 0f], 1.122f, 0f, [0f, 0f, 0f], 0.25f, 0f, 0.474f, 0.45f, 0.9886f, 5000f, 250f, 0f, 0x0);
-
-
-enum reverbPresetDRIVING_COMMENTATOR = EAXReverbProperties(1f, 0f, 0.3162f, 0.5623f, 0.5012f, 2.42f, 0.88f, 0.68f, 0.1995f, 0.093f, [0f, 0f, 0f], 0.2512f, 0.017f, [0f, 0f, 0f], 0.25f, 1f, 0.25f, 0f, 0.9886f, 5000f, 250f, 0f, 0x1);
-
-enum reverbPresetDRIVING_PITGARAGE = EAXReverbProperties(0.4287f, 0.59f, 0.3162f, 0.7079f, 0.5623f, 1.72f, 0.93f, 0.87f, 0.5623f, 0f, [0f, 0f, 0f], 1.2589f, 0.016f, [0f, 0f, 0f], 0.25f, 0.11f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x0);
-
-enum reverbPresetDRIVING_INCAR_RACER = EAXReverbProperties(0.0832f, 0.8f, 0.3162f, 1f, 0.7943f, 0.17f, 2f, 0.41f, 1.7783f, 0.007f, [0f, 0f, 0f], 0.7079f, 0.015f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 10268.2002f, 251f, 0f, 0x1);
-
-enum reverbPresetDRIVING_INCAR_SPORTS = EAXReverbProperties(0.0832f, 0.8f, 0.3162f, 0.631f, 1f, 0.17f, 0.75f, 0.41f, 1f, 0.01f, [0f, 0f, 0f], 0.5623f, 0f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 10268.2002f, 251f, 0f, 0x1);
-
-enum reverbPresetDRIVING_INCAR_LUXURY = EAXReverbProperties(0.256f, 1f, 0.3162f, 0.1f, 0.5012f, 0.13f, 0.41f, 0.46f, 0.7943f, 0.01f, [0f, 0f, 0f], 1.5849f, 0.01f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 10268.2002f, 251f, 0f, 0x1);
-
-enum reverbPresetDRIVING_FULLGRANDSTAND = EAXReverbProperties(1f, 1f, 0.3162f, 0.2818f, 0.631f, 3.01f, 1.37f, 1.28f, 0.3548f, 0.09f, [0f, 0f, 0f], 0.1778f, 0.049f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 10420.2002f, 250f, 0f, 0x0);
-
-enum reverbPresetDRIVING_EMPTYGRANDSTAND = EAXReverbProperties(1f, 1f, 0.3162f, 1f, 0.7943f, 4.62f, 1.75f, 1.4f, 0.2082f, 0.09f, [0f, 0f, 0f], 0.2512f, 0.049f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0f, 0.9943f, 10420.2002f, 250f, 0f, 0x0);
-
-enum reverbPresetDRIVING_TUNNEL = EAXReverbProperties(1f, 0.81f, 0.3162f, 0.3981f, 0.8913f, 3.42f, 0.94f, 1.31f, 0.7079f, 0.051f, [0f, 0f, 0f], 0.7079f, 0.047f, [0f, 0f, 0f], 0.214f, 0.05f, 0.25f, 0f, 0.9943f, 5000f, 155.3f, 0f, 0x1);
-
-
-enum reverbPresetCITY_STREETS = EAXReverbProperties(1f, 0.78f, 0.3162f, 0.7079f, 0.8913f, 1.79f, 1.12f, 0.91f, 0.2818f, 0.046f, [0f, 0f, 0f], 0.1995f, 0.028f, [0f, 0f, 0f], 0.25f, 0.2f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1);
-
-enum reverbPresetCITY_SUBWAY = EAXReverbProperties(1f, 0.74f, 0.3162f, 0.7079f, 0.8913f, 3.01f, 1.23f, 0.91f, 0.7079f, 0.046f, [0f, 0f, 0f], 1.2589f, 0.028f, [0f, 0f, 0f], 0.125f, 0.21f, 0.25f, 0f, 0.9943f, 5000f, 250f, 0f, 0x1);
-
-enum reverbPresetCITY_MUSEUM = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.1778f, 0.1778f, 3.28f, 1.4f, 0.57f, 0.2512f, 0.039f, [0f, 0f, -0f], 0.8913f, 0.034f, [0f, 0f, 0f], 0.13f, 0.17f, 0.25f, 0f, 0.9943f, 2854.3999f, 107.5f, 0f, 0x0);
-
-enum reverbPresetCITY_LIBRARY = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.2818f, 0.0891f, 2.76f, 0.89f, 0.41f, 0.3548f, 0.029f, [0f, 0f, -0f], 0.8913f, 0.02f, [0f, 0f, 0f], 0.13f, 0.17f, 0.25f, 0f, 0.9943f, 2854.3999f, 107.5f, 0f, 0x0);
-
-enum reverbPresetCITY_UNDERPASS = EAXReverbProperties(1f, 0.82f, 0.3162f, 0.4467f, 0.8913f, 3.57f, 1.12f, 0.91f, 0.3981f, 0.059f, [0f, 0f, 0f], 0.8913f, 0.037f, [0f, 0f, 0f], 0.25f, 0.14f, 0.25f, 0f, 0.992f, 5000f, 250f, 0f, 0x1);
-
-enum reverbPresetCITY_ABANDONED = EAXReverbProperties(1f, 0.69f, 0.3162f, 0.7943f, 0.8913f, 3.28f, 1.17f, 0.91f, 0.4467f, 0.044f, [0f, 0f, 0f], 0.2818f, 0.024f, [0f, 0f, 0f], 0.25f, 0.2f, 0.25f, 0f, 0.9966f, 5000f, 250f, 0f, 0x1);
-
-
-enum reverbPresetDUSTYROOM = EAXReverbProperties(0.3645f, 0.56f, 0.3162f, 0.7943f, 0.7079f, 1.79f, 0.38f, 0.21f, 0.5012f, 0.002f, [0f, 0f, 0f], 1.2589f, 0.006f, [0f, 0f, 0f], 0.202f, 0.05f, 0.25f, 0f, 0.9886f, 13046f, 163.3f, 0f, 0x1);
-
-enum reverbPresetCHAPEL = EAXReverbProperties(1f, 0.84f, 0.3162f, 0.5623f, 1f, 4.62f, 0.64f, 1.23f, 0.4467f, 0.032f, [0f, 0f, 0f], 0.7943f, 0.049f, [0f, 0f, 0f], 0.25f, 0f, 0.25f, 0.11f, 0.9943f, 5000f, 250f, 0f, 0x1);
-
-enum reverbPresetSMALLWATERROOM = EAXReverbProperties(1f, 0.7f, 0.3162f, 0.4477f, 1f, 1.51f, 1.25f, 1.14f, 0.8913f, 0.02f, [0f, 0f, 0f], 1.4125f, 0.03f, [0f, 0f, 0f], 0.179f, 0.15f, 0.895f, 0.19f, 0.992f, 5000f, 250f, 0f, 0x0);
 
 mixin(joinFnBinds((){
 	FnBind[] ret = [
