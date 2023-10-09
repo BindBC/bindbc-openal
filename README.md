@@ -1,4 +1,4 @@
-# bindbc-openal
+# BindBC-OpenAL
 This project provides both static and dynamic bindings to API version 1.1 of [the OpenAL library](https://www.openal.org/) and the alternative [OpenAL Soft implementation](https://openal-soft.org). They are `@nogc` and `nothrow` compatible and can be compiled for compatibility with `-betterC`. This package is intended as a replacement of [DerelictAL](https://github.com/DerelictOrg/DerelictAL), which is not compatible with `@nogc`,  `nothrow`, or `-betterC`.
 
 ## Usage

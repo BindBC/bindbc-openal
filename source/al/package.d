@@ -6,6 +6,7 @@
 +/
 module al;
 
+import bindbc.openal.config;
 import bindbc.openal.codegen;
 
 public import
