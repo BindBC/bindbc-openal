@@ -44,7 +44,7 @@ if(ret != ALSupport.al11) {
     // to determine the root cause via the return value:
 
     if(ret == ALSupport.noLibrary) {
-        // GLFW shared library failed to load
+        // OpenAL shared library failed to load
     }
     else if(ALSupport.badLibrary) {
         // One or more symbols failed to load.
@@ -56,7 +56,7 @@ Usually, the name and/or path will be platform specific, as in this example
 which attempts to load `soft_oal.dll`, the default name of the OpenAL Soft shared
 library, from the `libs` subdirectory, relative to the executable, only on Windows.
 */
-// version(Windows) loadGLFW("libs/soft_oal.dll")
+// version(Windows) loadOpenAL("libs/soft_oal.dll")
 ```
 
 __dub.json__
@@ -139,10 +139,10 @@ This has the benefit that it completely excludes from the build any source modul
 __dub.json__
 ```
 "dependencies": {
-    "bindbc-glfw": "~>1.0.0"
+    "bindbc-openal": "~>1.1.0"
 },
 "subConfigurations": {
-    "bindbc-glfw": "staticBC"
+    "bindbc-openal": "staticBC"
 },
 "libs-windows": ["OpenAL32"],
 "libs-posix": ["openal"]
@@ -150,8 +150,8 @@ __dub.json__
 
 __dub.sdl__
 ```
-dependency "bindbc-glfw" version="~>1.0.0"
-subConfiguration "bindbc-glfw" "staticBC"
+dependency "bindbc-openal" version="~>1.1.0"
+subConfiguration "bindbc-openal" "staticBC"
 libs "OpenAL32" platform="windows"
 libs "openal" platform="posix"
 ```
